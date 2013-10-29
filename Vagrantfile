@@ -11,8 +11,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
+  # fix locale
   config.vm.provision "shell",
     inline: "apt-get -y install language-pack-en"
+
+  # install docker
   config.vm.provision "shell",
-    path: "src/scripts/provision-docker.sh"
+    path: "scripts/provision-docker.sh"
+
+  # build django container
+  config.vm.provision "shell",
+    path: "scripts/provision-django.sh"
+
+  # build postgres container
+  config.vm.provision "shell",
+    path: "scripts/provision-postgres.sh"
 end

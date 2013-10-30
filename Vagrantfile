@@ -1,3 +1,7 @@
+#
+#
+#
+
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -19,11 +23,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-docker.sh"
 
-  # build django container
-  config.vm.provision "shell",
-    path: "scripts/provision-django.sh"
-
   # build postgres container
   config.vm.provision "shell",
     path: "scripts/provision-postgres.sh"
+
+  # build django container
+  config.vm.provision "shell",
+    path: "scripts/provision-django.sh"
 end

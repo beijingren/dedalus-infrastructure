@@ -9,7 +9,7 @@ MAINTAINER David Höppner <0xffea@gmail.com>
 RUN apt-get -y install	\
 	python-django	\
 	apache2		\
-	libapache2-mod-wsgi	'\
+	libapache2-mod-wsgi	\
 	postgresql-client-common
 
 EXPOSE 80

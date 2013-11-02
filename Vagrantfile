@@ -17,7 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # fix locale
   config.vm.provision "shell",
-    inline: "apt-get -y install language-pack-en"
+  # inline: "apt-get -y install --fix-missing language-pack-en"
+    inline: "locale-gen en_US.UTF-8"
 
   # install docker
   config.vm.provision "shell",
@@ -33,5 +34,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # build exist-db container
   config.vm.provision "shell",
-    path: "scripts/provision-exist.sh"
+    path: "scripts/provision-existdb.sh"
 end

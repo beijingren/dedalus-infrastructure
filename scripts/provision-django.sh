@@ -6,12 +6,11 @@ docker build -t 0xffea/raring-server-django - <<EOL
 FROM 0xffea/raring-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install	\
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install 	\
 	python-django	\
 	apache2		\
 	libapache2-mod-wsgi	\
-	postgresql-client-common
+#postgresql-client-common
 
 EXPOSE 80
 

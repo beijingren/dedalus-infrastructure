@@ -3,7 +3,7 @@
 #
 
 docker build -t 0xffea/saucy-server-django - <<EOL
-FROM 0xffea/raring-server-cloudimg-amd64
+FROM 0xffea/saucy-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install 	\

@@ -17,7 +17,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # fix locale
   config.vm.provision "shell",
-  # inline: "apt-get -y install --fix-missing language-pack-en"
     inline: "locale-gen en_US.UTF-8"
 
   # install docker

@@ -16,4 +16,4 @@ RUN chmod 0755 /postgres-start.sh
 CMD ["/postgres-start.sh"]
 EOL
 
-docker run -d -t 0xffea/raring-server-postgres
+docker run -d -p 5432:5432 -t 0xffea/raring-server-postgres

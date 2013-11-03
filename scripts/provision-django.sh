@@ -20,4 +20,4 @@ RUN chmod 0755 /django-start.sh
 CMD ["/django-start.sh"]
 EOL
 
-docker run -d -t 0xffea/raring-server-django
+docker run -p 80:80 -d -t 0xffea/raring-server-django

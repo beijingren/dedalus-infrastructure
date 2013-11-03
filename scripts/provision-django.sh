@@ -2,7 +2,7 @@
 # Django container
 #
 
-docker build -t 0xffea/raring-server-django - <<EOL
+docker build -t 0xffea/saucy-server-django - <<EOL
 FROM 0xffea/raring-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
@@ -20,4 +20,4 @@ RUN chmod 0755 /django-start.sh
 CMD ["/django-start.sh"]
 EOL
 
-docker run -p 80:80 -d -t 0xffea/raring-server-django
+docker run -p 80:80 -d -t 0xffea/saucy-server-django

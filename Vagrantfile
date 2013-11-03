@@ -1,12 +1,12 @@
 #
-#
+# Root Vagrant file
 #
 
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "raring-server"
-  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-amd64-vagrant-disk1.box"
+  config.vm.box = "saucy-server"
+  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box"
 
   config.vm.network :forwarded_port, guest: 80, host: 8080
 
@@ -15,9 +15,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
-  # fix locale
+  # setup base system
   config.vm.provision "shell",
-    inline: "locale-gen en_US.UTF-8"
+    path: "scripts/provision-setup.sh"
 
   # install docker
   config.vm.provision "shell",

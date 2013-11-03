@@ -2,7 +2,7 @@
 # Postgres container
 #
 
-docker build -t 0xffea/raring-server-postgres - <<EOL
+docker build -t 0xffea/saucy-server-postgres - <<EOL
 FROM 0xffea/raring-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
@@ -16,4 +16,4 @@ RUN chmod 0755 /postgres-start.sh
 CMD ["/postgres-start.sh"]
 EOL
 
-docker run -d -p 5432:5432 -t 0xffea/raring-server-postgres
+docker run -d -p 5432:5432 -t 0xffea/saucy-server-postgres

@@ -8,8 +8,10 @@ MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN apt-get -y install		\
 	python-django		\
+	python-psycopg2		\
 	apache2			\
-	libapache2-mod-wsgi
+	libapache2-mod-wsgi	\
+	git
 
 EXPOSE 80
 

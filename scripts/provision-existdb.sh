@@ -12,10 +12,10 @@ RUN apt-get -y install		\
 	openjdk-7-jre-lib
 
 
-ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/existdb-start.sh /existdb-start.sh
-RUN chmod 0755 /existdb-start.sh
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-existdb.sh /root/start-existdb.sh
+RUN chmod 0755 /root/start-existdb.sh
 
-CMD ["/existdb-start.sh"]
+CMD ["/start-existdb.sh"]
 EOL
 
 docker run -d -t 0xffea/saucy-server-existdb

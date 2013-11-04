@@ -13,10 +13,10 @@ RUN apt-get -y install		\
 
 EXPOSE 80
 
-ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/django-start.sh /django-start.sh
-RUN chmod 0755 /django-start.sh
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-django.sh /root/django-start.sh
+RUN chmod 0755 /root/django-start.sh
 
-CMD ["/django-start.sh"]
+CMD ["/start-django.sh"]
 EOL
 
 docker run -p 80:80 -d -t 0xffea/saucy-server-django

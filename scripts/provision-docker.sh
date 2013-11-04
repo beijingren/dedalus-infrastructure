@@ -1,8 +1,10 @@
 #
-# Docker container
+# Setup Docker
 #
 
-/usr/bin/apt-get -y install wget git
+/usr/bin/apt-get -y install	\
+	wget			\
+	git
 
 # Get Docker key and update source lists
 /bin/sh -c "/usr/bin/wget -qO- https://get.docker.io/gpg | apt-key add -"
@@ -10,7 +12,9 @@
 
 # Install Docker
 /usr/bin/apt-get update
-/usr/bin/apt-get -y install linux-image-extra-`uname -r`
-/usr/bin/apt-get -y install lxc-docker
+/usr/bin/apt-get -y install		\
+	linux-image-extra-`uname -r`	\
+	lxc-docker
 
+# Load overlay filesystem
 modprobe aufs

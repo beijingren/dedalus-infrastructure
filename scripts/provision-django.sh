@@ -6,11 +6,10 @@ docker build -t 0xffea/saucy-server-django - <<EOL
 FROM 0xffea/saucy-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install 	\
-	python-django	\
-	apache2		\
-	libapache2-mod-wsgi	\
-#postgresql-client-common
+RUN apt-get -y install		\
+	python-django		\
+	apache2			\
+	libapache2-mod-wsgi
 
 EXPOSE 80
 

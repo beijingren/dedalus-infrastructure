@@ -13,7 +13,7 @@ EXPOSE 5432
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-postgres.sh /root/start-postgres.sh
 RUN chmod 0755 /root/start-postgres.sh
 
-CMD ["/start-postgres.sh"]
+CMD ["/root/start-postgres.sh"]
 EOL
 
 docker run -d -p 5432:5432 -t 0xffea/saucy-server-postgres

@@ -4,15 +4,17 @@
 #
 #
 
+cd /home/docker
+
 # Get the web application
-git clone https://github.com/beijingren/roche-website.git /root/roche-website
+/usr/bin/git clone https://github.com/beijingren/roche-website.git
 
 # Get the config files
-git clone https://github.com/beijingren/dedalus-infrastructure.git /root/dedalus-infrastructure
+/usr/bin/git clone https://github.com/beijingren/dedalus-infrastructure.git
 
 # Install apache WSGI config
-cp /root/dedalus-infrastructure/configs/apache2/000-default.conf /etc/apache2/sites-available/
-cat /root/dedalus-infrastructure/configs/apache2/apache2.conf >> /etc/apache2/apache2.conf
+cp /home/docker/dedalus-infrastructure/configs/apache2/000-default.conf /etc/apache2/sites-available/
+cat /home/docker/dedalus-infrastructure/configs/apache2/apache2.conf >> /etc/apache2/apache2.conf
 
 # Serve the Django WSGI application
 /etc/init.d/apache2 start

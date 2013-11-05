@@ -32,6 +32,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     path: "scripts/provision-django.sh"
 
   # build exist-db container
-  config.vm.provision "shell",
-    path: "scripts/provision-existdb.sh"
+  #config.vm.provision "shell",
+  #  path: "scripts/provision-existdb.sh"
 end

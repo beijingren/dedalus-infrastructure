@@ -13,7 +13,7 @@ RUN apt-get -y install		\
 	libapache2-mod-wsgi	\
 	git
 
-RUN adduser -m -p "docker" docker
+RUN useradd -m -p "docker" docker
 
 EXPOSE 80
 

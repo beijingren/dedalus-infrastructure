@@ -8,7 +8,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "saucy-server"
   config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box"
 
+  # web server
   config.vm.network :forwarded_port, guest: 80, host: 8080
+
+  # postgresql server
+  config.vm.network :forwarded_port, guest: 5432, host: 5432
 
   config.vm.provider :virtualbox do |vb|
     vb.gui = true

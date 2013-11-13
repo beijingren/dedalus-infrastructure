@@ -9,8 +9,7 @@ pg_ctlcluster 9.1 main start
 # XXX: fix in production
 su postgres -c psql <<EOL
 create role docker superuser createdb password 'docker' login;
+create database docker owner docker;
 EOL
-
-#su postgres -c "createdb -O docker docker"
 
 tail -f /var/log/postgresql/postgresql-9.1-main.log

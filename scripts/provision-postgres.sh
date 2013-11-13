@@ -16,4 +16,4 @@ RUN chmod 0755 /root/start-postgres.sh
 CMD ["/root/start-postgres.sh"]
 EOL
 
-docker run -d -p 5432:5432 -t 0xffea/saucy-server-postgres
+docker run -d -name postgres -p 5432:5432 -t 0xffea/saucy-server-postgres

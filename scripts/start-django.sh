@@ -16,6 +16,10 @@ cd /home/docker
 cp /home/docker/dedalus-infrastructure/configs/apache2/000-default.conf /etc/apache2/sites-available/
 cat /home/docker/dedalus-infrastructure/configs/apache2/apache2.conf >> /etc/apache2/apache2.conf
 
+# Sync database
+cd /home/docker/roche-website
+python manage.py syncdb
+
 # Serve the Django WSGI application
 /etc/init.d/apache2 start
 

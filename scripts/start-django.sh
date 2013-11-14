@@ -19,6 +19,8 @@ cat /home/docker/dedalus-infrastructure/configs/apache2/apache2.conf >> /etc/apa
 # Sync database
 cd /home/docker/roche-website
 python manage.py syncdb
+python manage.py makemessages -l de
+python manage.py makemessages -l zh
 
 # Serve the Django WSGI application
 /etc/init.d/apache2 start

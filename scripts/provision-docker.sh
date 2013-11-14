@@ -2,7 +2,7 @@
 # Setup Docker
 #
 
-/usr/bin/apt-get -y install	\
+/usr/bin/apt-get -qy install	\
 	wget			\
 	git
 
@@ -12,7 +12,7 @@
 
 # Install Docker
 /usr/bin/apt-get update
-/usr/bin/apt-get -y install		\
+/usr/bin/apt-get -qy install		\
 	linux-image-extra-`uname -r`	\
 	lxc-docker
 

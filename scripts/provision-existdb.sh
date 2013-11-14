@@ -6,7 +6,8 @@ docker build -t 0xffea/saucy-server-existdb - <<EOL
 FROM 0xffea/saucy-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
-RUN apt-get -y install		\
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN apt-get -qy install		\
 	openjdk-7-jdk           \
 	openjdk-7-jre-headless  \
 	openjdk-7-jre-lib

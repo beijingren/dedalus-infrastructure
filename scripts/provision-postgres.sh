@@ -6,7 +6,9 @@ docker build -t 0xffea/saucy-server-postgres - <<EOL
 FROM 0xffea/saucy-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install postgresql
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN apt-get -qy install		\
+	postgresql
 
 EXPOSE 5432
 

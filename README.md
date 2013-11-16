@@ -16,9 +16,9 @@ vagrant up
 ```
 in this directory (directory with the Vagrantfile).
 
-Now you can reach the web interface at port 8080.
+Now you can reach the website at port 8000. The eXist dashboard can be found on port 8080.
 ```shell
-kde-open http://localhost:8080
+kde-open http://localhost:8000
 ```
 
 What happens
@@ -28,4 +28,9 @@ What happens
 * A docker base image [0xffea/saucy...](https://index.docker.io/u/0xffea/saucy-server-cloudimg-amd64/) (90 MB) will be downloaded
 * [Django](https://www.djangoproject.com/) container will be build and started. Public port 80
 * [Postgres](http://www.postgresql.org/) container will be build and started. Public port 5432
-* [eXistdb](http://exist-db.org/) container will be build and started.
+* [eXistdb](http://exist-db.org/) container will be downloaded and started. Public port 8080
+
+Tested on
+---------
+* Windows 7
+* Ubuntu 13.10

@@ -2,6 +2,9 @@
 # Postgres container
 #
 
+docker kill /postgres
+docker rm /postgres
+
 docker build -t 0xffea/saucy-server-postgres - <<EOL
 FROM 0xffea/saucy-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>

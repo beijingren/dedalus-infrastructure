@@ -20,13 +20,13 @@ RUN apt-get -qy install		\
 	python-django-south	\
 	python-imaging		\
 	python-markdown		\
+	python-pip		\
 	python-psycopg2		\
 	python-sorl-thumbnail	\
 	apache2			\
 	gettext			\
 	git			\
-	libapache2-mod-wsgi	\
-	pip
+	libapache2-mod-wsgi
 
 RUN useradd -m -p "docker" docker
 

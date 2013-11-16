@@ -12,7 +12,7 @@ cd /tmp
 # TODO: should be daemon mode
 /usr/local/existdb/tools/wrapper/bin/wrapper-linux-x86-64 -c ../conf/wrapper.conf
 
-/bin/sleep 20s
+/bin/sleep 1m
 
 # Load documents into the db
 # TODO: fix password in production

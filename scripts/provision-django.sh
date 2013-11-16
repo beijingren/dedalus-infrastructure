@@ -9,7 +9,10 @@ docker build -t 0xffea/saucy-server-django - <<EOL
 FROM 0xffea/saucy-server-cloudimg-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
+RUN echo "deb http://archive.ubuntu.com/ubuntu saucy universe" >> /etc/apt/sources.list
+
 RUN export DEBIAN_FRONTEND=noninteractive
+RUN apt-get update
 RUN apt-get -qy install		\
 	python-django		\
 	python-django-mptt	\
@@ -20,9 +23,10 @@ RUN apt-get -qy install		\
 	python-psycopg2		\
 	python-sorl-thumbnail	\
 	apache2			\
-	libapache2-mod-wsgi	\
 	gettext			\
-	git
+	git			\
+	libapache2-mod-wsgi	\
+	pip
 
 RUN useradd -m -p "docker" docker
 

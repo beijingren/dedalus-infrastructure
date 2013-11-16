@@ -26,7 +26,8 @@ RUN apt-get -qy install		\
 	apache2			\
 	gettext			\
 	git			\
-	libapache2-mod-wsgi
+	libapache2-mod-wsgi	\
+	libpython-dev
 
 RUN useradd -m -p "docker" docker
 

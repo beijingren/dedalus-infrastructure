@@ -4,10 +4,10 @@ Vagrant and Docker files to build the infrastructure of the digital Siku quanshu
 
 Get started
 -----------
-You need to install [Vagrant](http://www.vagrantup.com/) for your platform. On Ubuntu
+You need to install [Vagrant](http://www.vagrantup.com/) (>= 1.2) for your platform. On Ubuntu
 just run
 ```shell
-apt-get install vagrant
+apt-get install vagrant 
 ```
 
 To build and start the virtual machine run
@@ -28,9 +28,10 @@ What happens
 * A docker base image [0xffea/saucy...](https://index.docker.io/u/0xffea/saucy-server-cloudimg-amd64/) (90 MB) will be downloaded
 * [Django](https://www.djangoproject.com/) container will be build and started. Public port 80
 * [Postgres](http://www.postgresql.org/) container will be build and started. Public port 5432
-* [eXistdb](http://exist-db.org/) container will be downloaded and started. Public port 8080
+* An eXist-db base image [](https://index.docker.io/u/0xffea/saucy-server-existdb-amd64/) (440 MB) will be downloaded
+* [eXistdb](http://exist-db.org/) container will be build and started. Public port 8080
 
-Tested on
----------
+Tested under
+------------
 * Windows 7
 * Ubuntu 13.10

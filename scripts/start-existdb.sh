@@ -12,12 +12,12 @@ cd /tmp
 # TODO: should be daemon mode
 /usr/local/existdb/tools/wrapper/bin/wrapper-linux-x86-64 -c ../conf/wrapper.conf
 
-/bin/sleep 10s
+/bin/sleep 20s
 
 # Load documents into the db
 # TODO: fix password in production
 for f in $(find /tmp/dublin-store -name "*.xml"); do
-/usr/local/existdb/tools/wrapper/bin/client.sh -u admin -P glen32 -m /db/docker -p /tmp/dublin-store/${f}
+/usr/local/existdb/tools/wrapper/bin/client.sh -u admin -P glen32 -m /db/docker -p /tmp/dublin-store/${f};
 done
 
 # TODO: should be server log

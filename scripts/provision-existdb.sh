@@ -21,4 +21,4 @@ RUN chmod 0755 /root/start-existdb.sh
 CMD ["/root/start-existdb.sh"]
 EOL
 
-docker run -d -privileged -name existdb -p 8080:8080 -v /var/lib/volume1:/docker-volume1:rw -t 0xffea/saucy-server-existdb
+docker run -d -privileged -name existdb -p 8080:8080 -v /var/lib/volume1:/docker/volume1:rw -t 0xffea/saucy-server-existdb

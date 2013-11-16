@@ -39,4 +39,4 @@ RUN chmod 0755 /home/docker/start-django.sh
 CMD ["/home/docker/start-django.sh"]
 EOL
 
-docker run -p 80:80 -d -name django -v /var/lib/volume1:/docker-volume1:rw -t 0xffea/saucy-server-django
+docker run -p 80:80 -d -name django -v /var/lib/volume1:/docker/volume1:rw -t 0xffea/saucy-server-django

@@ -22,7 +22,7 @@ cd /home/docker/roche-website
 pip install -r requirements.txt
 
 # Sync database
-python manage.py syncdb
+python manage.py syncdb --noinput
 
 # Generate L18N
 python manage.py makemessages -l de

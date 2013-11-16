@@ -12,7 +12,13 @@ MAINTAINER David Höppner <0xffea@gmail.com>
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get -qy install		\
 	python-django		\
+	python-django-mptt	\
+	python-django-sekizai	\
+	python-django-south	\
+	python-imaging		\
+	python-markdown		\
 	python-psycopg2		\
+	python-sorl-thumbnail	\
 	apache2			\
 	libapache2-mod-wsgi	\
 	gettext			\

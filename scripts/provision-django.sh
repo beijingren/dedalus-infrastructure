@@ -21,8 +21,10 @@ RUN apt-get -qy install		\
 	python-django-sekizai	\
 	python-django-south	\
 	python-imaging		\
+	python-lxml		\
 	python-markdown		\
 	python-pip		\
+	python-ply		\
 	python-psycopg2		\
 	python-sorl-thumbnail	\
 	apache2			\

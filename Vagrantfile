@@ -34,11 +34,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-postgres.sh"
 
-  # build django container
-  config.vm.provision "shell",
-    path: "scripts/provision-django.sh"
-
   # build exist-db container
   config.vm.provision "shell",
     path: "scripts/provision-existdb.sh"
+
+  # build django container
+  config.vm.provision "shell",
+    path: "scripts/provision-django.sh"
 end

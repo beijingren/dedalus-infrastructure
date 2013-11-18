@@ -28,6 +28,7 @@ python manage.py syncdb --noinput
 python manage.py compilemessages
 
 # Serve the Django WSGI application
+rm /var/run/apache2/apache2.pid
 /etc/init.d/apache2 start
 
 tail -f /var/log/apache2/error.log

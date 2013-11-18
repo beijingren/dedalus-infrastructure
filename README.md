@@ -35,3 +35,9 @@ Tested under
 ------------
 * Windows 7
 * Ubuntu 13.10
+
+Stay hungry. Stay foolish.
+--------------------------
+```shell
+vagrant provision
+```

@@ -16,6 +16,11 @@ cd /home/docker
 cp /home/docker/dedalus-infrastructure/configs/apache2/000-default.conf /etc/apache2/sites-available/
 cat /home/docker/dedalus-infrastructure/configs/apache2/apache2.conf >> /etc/apache2/apache2.conf
 
+# TODO: kind of ugly. is there are a better way todo this?
+echo "export DOCKER_PASSWORD=${DOCKER_PASSWORD}" >> /etc/apache2/envvars
+echo "export DB_PORT_5432_TCP_ADDR=${DB_PORT_5432_TCP_ADDR}" >> /etc/apache2/envvars
+echo "export DB_PORT_5432_TCP_PORT=${DB_PORT_5432_TCP_PORT}" >> /etc/apache2/envvars
+
 cd /home/docker/roche-website
 
 # Install requirements

@@ -25,8 +25,7 @@ pip install -r requirements.txt
 python manage.py syncdb --noinput
 
 # Generate L18N
-python manage.py makemessages -l de
-python manage.py makemessages -l zh
+python manage.py compilemessages
 
 # Serve the Django WSGI application
 /etc/init.d/apache2 start

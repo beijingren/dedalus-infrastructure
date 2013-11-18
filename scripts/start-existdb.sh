@@ -17,7 +17,7 @@ cd /tmp
 # Load documents into the db
 # TODO: fix password in production
 for f in $(find /tmp/dublin-store -name "*.xml"); do
-/usr/local/existdb/bin/client.sh -u admin -P glen32 -m /db/docker -p /tmp/dublin-store/${f};
+/usr/local/existdb/bin/client.sh -u admin -P glen32 -m /db/docker -p ${f};
 done
 
 # TODO: should be server log

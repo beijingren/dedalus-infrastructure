@@ -16,9 +16,8 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu saucy universe" >> /etc/apt/sourc
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get -qy install		\
+	python-creoleparser	\
 	python-django		\
-	python-django-mptt	\
-	python-django-sekizai	\
 	python-django-south	\
 	python-imaging		\
 	python-lxml		\

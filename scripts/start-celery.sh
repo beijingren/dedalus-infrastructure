@@ -1,0 +1,3 @@
+#
+# Celery start script
+#

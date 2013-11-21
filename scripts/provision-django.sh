@@ -18,6 +18,7 @@ RUN apt-get update
 RUN apt-get -qy install		\
 	python-creoleparser	\
 	python-django		\
+	python-django-celery	\
 	python-django-south	\
 	python-imaging		\
 	python-lxml		\

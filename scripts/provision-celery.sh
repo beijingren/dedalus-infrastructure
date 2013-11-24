@@ -13,8 +13,9 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu saucy universe" >> /etc/apt/sourc
 
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get install -y	\
-	python-celery
+RUN apt-get install -y		\
+	python-celery		\
+	rabbitmq-server
 
 RUN useradd -m -p "celery" celery
 

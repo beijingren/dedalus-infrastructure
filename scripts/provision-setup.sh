@@ -6,7 +6,8 @@ locale-gen en_US.UTF-8
 apt-get update
 apt-get -y upgrade
 apt-get -qy install	\
-	pwgen
+	pwgen		\
+	xsltproc
 
 # Shared data diretory for all containers
 mkdir -p /var/lib/volume1

@@ -6,6 +6,9 @@
 
 cd /home/docker
 
+# Get XML documents
+/usr/bin/git clone https://github.com/beijingren/dublin-store.git
+
 # Get the web application
 /usr/bin/git clone https://github.com/beijingren/roche-website.git
 
@@ -34,6 +37,9 @@ python manage.py migrate
 
 # Generate L18N
 python manage.py compilemessages
+
+# Load XML documents into exist
+python roche/scripts/xml-load.py
 
 # Serve the Django WSGI application
 rm /var/run/apache2/apache2.pid

@@ -38,8 +38,11 @@ python manage.py migrate
 # Generate L18N
 python manage.py compilemessages
 
-# Load XML documents into exist
+# Load XML documents into exist and build the fulltext index
 python roche/scripts/xml-load.py
+
+python manage.py existdb load-index
+python manage.py existdb reindex
 
 # Serve the Django WSGI application
 rm /var/run/apache2/apache2.pid

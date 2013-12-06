@@ -30,6 +30,7 @@ What happens
 * [Postgres](http://www.postgresql.org/) container will be build and started. Public port 5432
 * An eXist-db base image [](https://index.docker.io/u/0xffea/saucy-server-existdb-amd64/) (440 MB) will be downloaded
 * [eXistdb](http://exist-db.org/) container will be build and started. Public port 8080
+* [Fuseki](http://jena.apache.org/) container will be build and started. Public port 3030
 
 Tested under
 ------------
@@ -39,5 +40,8 @@ Tested under
 Stay hungry. Stay foolish.
 --------------------------
 ```shell
+vagrant suspend
+# After days
+vagrant resume
 vagrant provision
 ```

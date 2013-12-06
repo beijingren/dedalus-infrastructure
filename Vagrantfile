@@ -38,6 +38,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-existdb.sh"
 
+  # build fuseki container
+  config.vm.provision "shell",
+    path: "scripts/provision-fuseki.sh"
+
   # build django container
   config.vm.provision "shell",
     path: "scripts/provision-django.sh"

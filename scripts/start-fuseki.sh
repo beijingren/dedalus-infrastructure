@@ -1,8 +1,10 @@
+#!/bin/sh
+
 #
 # Fuseki
 #
 
-cd
+cd /root
 
 wget http://www.apache.org/dist/jena/binaries/jena-fuseki-1.0.0-distribution.tar.gz
 tar xf jena-fuseki-1.0.0-distribution.tar.gz

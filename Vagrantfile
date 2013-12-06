@@ -17,6 +17,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # existdb server
   config.vm.network :forwarded_port, guest: 8080, host: 8080
 
+  # fuseki server
+  config.vm.network :forwarded_port, guest: 3030, host: 3030
+
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
     vb.customize ["modifyvm", :id, "--memory", "1024"]

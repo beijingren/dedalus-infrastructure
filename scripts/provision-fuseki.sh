@@ -9,6 +9,10 @@ docker build -t 0xffea/saucy-server-fuseki - <<EOL
 FROM 0xffea/saucy-server-existdb-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN apt-get -qy install		\
+	git
+
 EXPOSE 3030
 
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-fuseki.sh /root/start-fuseki.sh

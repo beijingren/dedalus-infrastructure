@@ -25,6 +25,8 @@ echo "export DB_PORT_5432_TCP_ADDR=${DB_PORT_5432_TCP_ADDR}" >> /etc/apache2/env
 echo "export DB_PORT_5432_TCP_PORT=${DB_PORT_5432_TCP_PORT}" >> /etc/apache2/envvars
 echo "export XMLDB_PORT_8080_TCP_ADDR=${XMLDB_PORT_8080_TCP_ADDR}" >> /etc/apache2/envvars
 echo "export XMLDB_PORT_8080_TCP_PORT=${XMLDB_PORT_8080_TCP_PORT}" >> /etc/apache2/envvars
+echo "export SPARQL_PORT_3030_TCP_ADDR=${SPARQL_PORT_3030_TCP_ADDR}" >> /etc/apache2/envvars
+echo "export SPARQL_PORT_8080_TCP_PORT=${SPARQL_PORT_3030_TCP_PORT}" >> /etc/apache2/envvars
 
 cd /home/docker/roche-website
 

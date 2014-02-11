@@ -15,7 +15,7 @@ RUN apt-get -qy install		\
 
 EXPOSE 5432
 
-ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-postgres.sh /root/start-postgres.sh
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/start-postgres.sh /root/start-postgres.sh
 RUN chmod 0755 /root/start-postgres.sh
 
 CMD ["/root/start-postgres.sh"]

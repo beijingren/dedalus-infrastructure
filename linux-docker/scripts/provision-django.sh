@@ -36,7 +36,7 @@ RUN useradd -m -p "docker" docker
 
 EXPOSE 80
 
-ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-django.sh /home/docker/start-django.sh
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/start-django.sh /home/docker/start-django.sh
 RUN chmod 0755 /home/docker/start-django.sh
 
 CMD ["/home/docker/start-django.sh"]

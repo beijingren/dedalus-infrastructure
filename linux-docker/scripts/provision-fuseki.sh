@@ -15,7 +15,7 @@ RUN apt-get -qy install		\
 
 EXPOSE 3030
 
-ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-fuseki.sh /root/start-fuseki.sh
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/start-fuseki.sh /root/start-fuseki.sh
 RUN chmod 0755 /root/start-fuseki.sh
 
 CMD ["/root/start-fuseki.sh"]

@@ -15,7 +15,7 @@ RUN apt-get -qy install	\
 
 EXPOSE 8080 8443
 
-ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-existdb.sh /start-existdb.sh
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/linux-docker/start-existdb.sh /start-existdb.sh
 RUN chmod 0755 /start-existdb.sh
 
 CMD ["/start-existdb.sh"]

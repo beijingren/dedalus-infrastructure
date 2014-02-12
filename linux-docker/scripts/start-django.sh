@@ -16,8 +16,8 @@ cd /home/docker
 /usr/bin/git clone https://github.com/beijingren/dedalus-infrastructure.git
 
 # Install apache WSGI config
-cp /home/docker/dedalus-infrastructure/configs/apache2/000-default.conf /etc/apache2/sites-available/
-cat /home/docker/dedalus-infrastructure/configs/apache2/apache2.conf >> /etc/apache2/apache2.conf
+cp /home/docker/dedalus-infrastructure/linux-docker/configs/apache2/000-default.conf /etc/apache2/sites-available/
+cat /home/docker/dedalus-infrastructure/linux-docker/configs/apache2/apache2.conf >> /etc/apache2/apache2.conf
 
 # TODO: kind of ugly. is there are a better way todo this?
 echo "export DOCKER_PASSWORD=${DOCKER_PASSWORD}" >> /etc/apache2/envvars

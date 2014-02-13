@@ -4,20 +4,9 @@
 #
 #
 
-cd /home/docker
-
-# Get XML documents
-/usr/bin/git clone https://github.com/beijingren/dublin-store.git
-
-# Get the web application
-/usr/bin/git clone https://github.com/beijingren/roche-website.git
-
-# Get the config files
-/usr/bin/git clone https://github.com/beijingren/dedalus-infrastructure.git
-
 # Install apache WSGI config
-cp /home/docker/dedalus-infrastructure/linux-docker/configs/apache2/000-default.conf /etc/apache2/sites-available/
-cat /home/docker/dedalus-infrastructure/linux-docker/configs/apache2/apache2.conf >> /etc/apache2/apache2.conf
+cp /docker/dedalus-infrastructure/linux-docker/configs/apache2/000-default.conf /etc/apache2/sites-available/
+cat /docker/dedalus-infrastructure/linux-docker/configs/apache2/apache2.conf >> /etc/apache2/apache2.conf
 
 # TODO: kind of ugly. is there are a better way todo this?
 echo "export DOCKER_PASSWORD=${DOCKER_PASSWORD}" >> /etc/apache2/envvars
@@ -28,7 +17,7 @@ echo "export XMLDB_PORT_8080_TCP_PORT=${XMLDB_PORT_8080_TCP_PORT}" >> /etc/apach
 echo "export SPARQL_PORT_3030_TCP_ADDR=${SPARQL_PORT_3030_TCP_ADDR}" >> /etc/apache2/envvars
 echo "export SPARQL_PORT_3030_TCP_PORT=${SPARQL_PORT_3030_TCP_PORT}" >> /etc/apache2/envvars
 
-cd /home/docker/roche-website
+cd /docker/roche-website
 
 # Install requirements
 pip install -r requirements.txt

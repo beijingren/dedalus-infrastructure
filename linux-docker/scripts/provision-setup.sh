@@ -1,15 +1,38 @@
 
+DUBLIN=dublin-store
+ROCHE=roche-website
+DEDALUS=dedalus-infrastructure
+
 # Fix locale
 locale-gen en_US.UTF-8
 
 # Update the base system
-apt-get update
-apt-get -y upgrade
 apt-get -qy install	\
-	pwgen		\
-	xsltproc
+	git		\
+	pwgen
 
 # Shared data diretory for all containers
-mkdir -p /var/lib/volume1
+mkdir -p /docker
 
-pwgen 7 1 > /var/lib/volume1/master-password.txt
+pwgen 7 1 > /docker/master-password.txt
+
+# Clone or update repos
+cd /docker
+
+if test -d ${DUBLIN}; then
+	cd ${DUBLIN}; git pull; cd -;
+else
+	git clone https://github.com/beijingren/${DUBLIN}.git
+fi
+
+if test -d ${ROCHE}; then
+	cd ${ROCHE}; git pull; cd -;
+else
+	git clone https://github.com/beijingren/${ROCHE}.git
+fi
+
+if test -d ${DEDALUS}; then
+	cd ${DEDALUS}; git pull; cd -
+else
+	git clone https://github.com/beijingren/${DEDALUS}.git
+fi

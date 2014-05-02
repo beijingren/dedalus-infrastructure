@@ -25,4 +25,4 @@ RUN chmod 0755 /home/celery/start-django.sh
 CMD ["/home/celery/start-celery.sh"]
 EOL
 
-docker run -d -name celery -t 0xffea/saucy-server-celery
+docker run -d --name celery -t 0xffea/saucy-server-celery

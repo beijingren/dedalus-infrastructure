@@ -21,4 +21,4 @@ RUN chmod 0755 /root/start-fuseki.sh
 CMD ["/root/start-fuseki.sh"]
 EOL
 
-docker run -d -name fuseki -p 3030:3030 -v /docker:/docker:rw -t 0xffea/saucy-server-fuseki
+docker run -d --name fuseki -p 3030:3030 -v /docker:/docker:rw -t 0xffea/saucy-server-fuseki

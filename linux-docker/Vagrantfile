@@ -1,0 +1,51 @@
+#
+# Root Vagrant file
+#
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "saucy-server"
+  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box"
+
+  # web server
+  config.vm.network :forwarded_port, guest: 80, host: 8000
+
+  # postgresql server
+  config.vm.network :forwarded_port, guest: 5432, host: 5432
+
+  # existdb server
+  config.vm.network :forwarded_port, guest: 8080, host: 8080
+
+  # fuseki server
+  config.vm.network :forwarded_port, guest: 3030, host: 3030
+
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = true
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+
+  # setup base system
+  config.vm.provision "shell",
+    path: "scripts/provision-setup.sh"
+
+  # install docker
+  config.vm.provision "shell",
+    path: "scripts/provision-docker.sh"
+
+  # build postgres container
+  config.vm.provision "shell",
+    path: "scripts/provision-postgres.sh"
+
+  # build exist-db container
+  config.vm.provision "shell",
+    path: "scripts/provision-existdb.sh"
+
+  # build fuseki container
+  config.vm.provision "shell",
+    path: "scripts/provision-fuseki.sh"
+
+  # build django container
+  config.vm.provision "shell",
+    path: "scripts/provision-django.sh"
+end

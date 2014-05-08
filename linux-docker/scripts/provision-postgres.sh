@@ -3,7 +3,7 @@
 #
 
 docker kill /postgres
-docker rm /postgres
+docker rmi /postgres
 
 docker build -t 0xffea/saucy-server-postgres - <<EOL
 FROM 0xffea/saucy-server-cloudimg-amd64

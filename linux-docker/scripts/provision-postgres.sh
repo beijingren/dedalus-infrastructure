@@ -2,8 +2,15 @@
 # Postgres container
 #
 
+docker kill /django
+docker kill /fuseki
+docker kill /existdb
 docker kill /postgres
+
+docker rmi 0xffea/saucy-server-django
 docker rmi 0xffea/saucy-server-postgres
+docker rmi 0xffea/saucy-server-fuseki
+docker rmi 0xffea/saucy-server-existdb
 
 docker build -t 0xffea/saucy-server-postgres - <<EOL
 FROM 0xffea/saucy-server-cloudimg-amd64

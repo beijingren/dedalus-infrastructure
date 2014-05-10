@@ -2,10 +2,10 @@
 # Postgres container
 #
 
-docker kill /django
-docker kill /fuseki
-docker kill /existdb
-docker kill /postgres
+docker kill django
+docker kill fuseki
+docker kill existdb
+docker kill postgres
 
 docker rmi -f 0xffea/saucy-server-django
 docker rmi -f 0xffea/saucy-server-postgres

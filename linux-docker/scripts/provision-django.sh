@@ -30,7 +30,9 @@ RUN apt-get -qy install		\
 	gettext			\
 	git			\
 	libapache2-mod-wsgi	\
-	libpython-dev
+	libpython-dev		\
+	teseeracr-ocr		\
+	tesseract-ocr-chi-tra
 
 RUN useradd -m -p "docker" docker
 

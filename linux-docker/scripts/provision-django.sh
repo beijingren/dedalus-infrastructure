@@ -31,7 +31,7 @@ RUN apt-get -qy install		\
 	git			\
 	libapache2-mod-wsgi	\
 	libpython-dev		\
-	tesseracr-ocr		\
+	tesseract-ocr		\
 	tesseract-ocr-chi-tra
 
 RUN useradd -m -p "docker" docker

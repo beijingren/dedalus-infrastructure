@@ -10,7 +10,7 @@ pg_ctlcluster 9.1 main start
 
 su postgres -c psql <<EOL
 create role docker superuser createdb password '${PASSWORD}' login;
-create database docker owner docker with encoding 'UTF8' LC_COLLATE='zh_TW.UTF8';
+create database docker owner docker with encoding 'UTF8';
 EOL
 
 tail -f /var/log/postgresql/postgresql-9.1-main.log

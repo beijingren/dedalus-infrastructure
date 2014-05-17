@@ -20,3 +20,5 @@ docker rmi -f 0xffea/saucy-server-django
 docker rmi -f 0xffea/saucy-server-postgres
 docker rmi -f 0xffea/saucy-server-fuseki
 docker rmi -f 0xffea/saucy-server-existdb
+
+exit 0

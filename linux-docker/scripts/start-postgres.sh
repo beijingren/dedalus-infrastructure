@@ -10,7 +10,12 @@ pg_ctlcluster 9.1 main start
 
 su postgres -c psql <<EOL
 create role docker superuser createdb password '${PASSWORD}' login;
-create database docker owner docker with encoding 'UTF8';
+create database docker owner docker;
+EOL
+
+su postgres -c psql <<EOL
+create role django createdb password '${PASSWORD}' login;
+create database django owner django;
 EOL
 
 tail -f /var/log/postgresql/postgresql-9.1-main.log

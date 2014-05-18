@@ -2,16 +2,12 @@
 # Existdb container
 #
 
-docker kill /existdb
-docker rm /existdb
+docker kill existdb
+docker rm existdb
 
 docker build -t 0xffea/saucy-server-existdb - <<EOL
 FROM 0xffea/saucy-server-existdb-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
-
-RUN export DEBIAN_FRONTEND=noninteractive
-RUN apt-get -qy install	\
-	git
 
 EXPOSE 8080 8443
 

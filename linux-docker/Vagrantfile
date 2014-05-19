@@ -37,13 +37,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-docker.sh"
 
-  # build postgres container
-  config.vm.provision "shell",
-    path: "scripts/provision-postgres.sh"
-
   # build exist-db container
   config.vm.provision "shell",
     path: "scripts/provision-existdb.sh"
+
+  # build postgres container
+  config.vm.provision "shell",
+    path: "scripts/provision-postgres.sh"
 
   # build fuseki container
   config.vm.provision "shell",

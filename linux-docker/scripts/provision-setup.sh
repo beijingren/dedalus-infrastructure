@@ -12,7 +12,7 @@ apt-get -qy install	\
 	pwgen
 
 # Shared data diretory for all containers
-mkdir -p /docker
+mkdir -p /docker/apache2
 
 pwgen 7 1 > /docker/master-password.txt
 

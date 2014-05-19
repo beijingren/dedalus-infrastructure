@@ -2,8 +2,8 @@
 # Fuseki container
 #
 
-docker kill /fuseki
-docker rm /fuseki
+docker kill fuseki
+docker rm fuseki
 
 docker build -t 0xffea/saucy-server-fuseki - <<EOL
 FROM 0xffea/saucy-server-existdb-amd64

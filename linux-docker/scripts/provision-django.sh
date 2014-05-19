@@ -4,8 +4,8 @@
 
 PASSWORD=$(cat /docker/master-password.txt)
 
-docker kill /django
-docker rm /django
+docker kill django
+docker rm django
 
 docker build -t 0xffea/saucy-server-django - <<EOL
 FROM 0xffea/saucy-server-cloudimg-amd64

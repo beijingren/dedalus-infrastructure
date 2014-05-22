@@ -25,6 +25,7 @@ RUN apt-get -qy install		\
 	python-pip		\
 	python-ply		\
 	python-psycopg2		\
+	python-requests		\
 	python-sorl-thumbnail	\
 	apache2			\
 	gettext			\

@@ -33,7 +33,9 @@ python manage.py compilemessages
 python roche/scripts/xml-load.py
 
 python manage.py existdb load-index
-python manage.py existdb reindex
+
+# TODO: seems to hang on server
+#python manage.py existdb reindex
 
 # Serve the Django WSGI application
 rm /var/run/apache2/apache2.pid

@@ -20,6 +20,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # fuseki server
   config.vm.network :forwarded_port, guest: 3030, host: 3030
 
+  # cache server (memcached)
+  config.vm.network :forwarded_port, guest: 11211, host: 11211
+
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
     vb.customize ["modifyvm", :id, "--memory", "1024"]

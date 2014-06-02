@@ -22,6 +22,7 @@ RUN apt-get -qy install		\
 	python-imaging		\
 	python-lxml		\
 	python-markdown		\
+	python-memcached	\
 	python-pip		\
 	python-ply		\
 	python-psycopg2		\
@@ -32,12 +33,14 @@ RUN apt-get -qy install		\
 	git			\
 	libapache2-mod-wsgi	\
 	libpython-dev		\
+	memcached		\
 	tesseract-ocr		\
 	tesseract-ocr-chi-tra
 
 RUN useradd -m -p "docker" docker
 
 EXPOSE 80
+EXPOSE 11211
 
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/start-django.sh /home/docker/start-django.sh
 RUN chmod 0755 /home/docker/start-django.sh
@@ -45,4 +48,4 @@ RUN chmod 0755 /home/docker/start-django.sh
 CMD ["/home/docker/start-django.sh"]
 EOL
 
-docker run -d --privileged -e DOCKER_PASSWORD=${PASSWORD} -p 80:80 --name django --link postgres:db --link existdb:xmldb --link fuseki:sparql -v /docker:/docker:rw -t 0xffea/saucy-server-django
+docker run -d --privileged -e DOCKER_PASSWORD=${PASSWORD} -p 80:80 -p 11211:11211 --name django --link postgres:db --link existdb:xmldb --link fuseki:sparql -v /docker:/docker:rw -t 0xffea/saucy-server-django

@@ -22,7 +22,7 @@ RUN apt-get -qy install		\
 	python-imaging		\
 	python-lxml		\
 	python-markdown		\
-	python-memcached	\
+	python-memcache		\
 	python-pip		\
 	python-ply		\
 	python-psycopg2		\

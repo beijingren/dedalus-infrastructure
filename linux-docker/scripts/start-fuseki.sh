@@ -6,9 +6,9 @@
 
 cd /root
 
-wget http://www.apache.org/dist/jena/binaries/jena-fuseki-1.0.1-distribution.tar.gz
-tar xf jena-fuseki-1.0.1-distribution.tar.gz
-cd jena-fuseki-1.0.1
+wget http://www.apache.org/dist/jena/binaries/jena-fuseki-1.0.2-distribution.tar.gz
+tar xf jena-fuseki-1.0.2-distribution.tar.gz
+cd jena-fuseki-1.0.2
 
 chmod +x s-put
 

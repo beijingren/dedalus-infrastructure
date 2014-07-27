@@ -3,18 +3,10 @@ DUBLIN=dublin-store
 ROCHE=roche-website
 DEDALUS=dedalus-infrastructure
 
-# Fix locale
-#locale-gen en_US.UTF-8
-
-# Update the base system
-apt-get -qy install	\
-#	git		\
-	pwgen
-
 # Shared data diretory for all containers
 mkdir -p /docker/apache2
 
-pwgen 7 1 > /docker/master-password.txt
+echo -n "iSoof4Vo" > /docker/master-password.txt
 
 # Clone or update repos
 cd /docker

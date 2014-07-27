@@ -4,11 +4,11 @@ ROCHE=roche-website
 DEDALUS=dedalus-infrastructure
 
 # Fix locale
-locale-gen en_US.UTF-8
+#locale-gen en_US.UTF-8
 
 # Update the base system
 apt-get -qy install	\
-	git		\
+#	git		\
 	pwgen
 
 # Shared data diretory for all containers

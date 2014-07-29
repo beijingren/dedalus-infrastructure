@@ -8,7 +8,7 @@ docker kill django
 docker rm django
 
 docker build -t 0xffea/saucy-server-django - <<EOL
-FROM 0xffea/saucy-server-cloudimg-amd64
+FROM ubuntu:14.04
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu saucy universe" >> /etc/apt/sources.list

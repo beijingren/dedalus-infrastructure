@@ -5,8 +5,9 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "saucy-server"
-  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box"
+  config.vm.box = "coreos-stable"
+  config.vm.box_version = ">= 308.0.1"
+  config.vm.box_url = "http://stable.release.core-os.net/amd64-usr/current/coreos_production_vagrant.json"
 
   # web server
   config.vm.network :forwarded_port, guest: 80, host: 8000
@@ -25,16 +26,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
   # setup base system
   config.vm.provision "shell",
     path: "scripts/provision-setup.sh"
-
-  # remove running docker containers
-  config.vm.provision "shell",
-    path: "scripts/clean-docker.sh"
 
   # install docker
   config.vm.provision "shell",

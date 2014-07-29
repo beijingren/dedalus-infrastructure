@@ -33,9 +33,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-setup.sh"
 
-  # install docker
+  # remove running docker containers
   config.vm.provision "shell",
-    path: "scripts/provision-docker.sh"
+    path: "scripts/clean-docker.sh"
 
   # build exist-db container
   config.vm.provision "shell",

@@ -29,6 +29,8 @@ python manage.py migrate
 # Generate L18N
 python manage.py compilemessages
 
+export DJANGO_SETTINGS_MODULE=roche.settings
+
 # Load XML documents into exist and build the fulltext index
 python roche/scripts/xml-load.py
 

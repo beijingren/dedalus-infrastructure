@@ -43,3 +43,17 @@ vagrant suspend
 vagrant resume
 vagrant provision
 ```
+
+Load XML into ExistDB
+---------------------
+Log into the running container named 'control'
+```shell
+docker attach control
+```
+and then run the script to load the XML data.
+```shell
+cd /docker/roche-website
+source roche/scripts/server-deploy.sh
+python roch/scripts/xml-load.py
+```
+log out of the container with '^P^Q'. PLEASE DONT USE exit or ^D, as this will kill the container.

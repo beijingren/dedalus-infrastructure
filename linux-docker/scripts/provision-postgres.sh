@@ -10,6 +10,7 @@ FROM ubuntu:14.04
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
+RUN apt-get update
 RUN apt-get -qy install		\
 	postgresql
 

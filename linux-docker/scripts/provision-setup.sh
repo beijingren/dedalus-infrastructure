@@ -2,6 +2,7 @@
 DUBLIN=dublin-store
 ROCHE=roche-website
 DEDALUS=dedalus-infrastructure
+BERTIE=bertie-uima
 
 # Shared data diretory for all containers
 mkdir -p /docker/apache2
@@ -27,4 +28,10 @@ if test -d ${DEDALUS}; then
 	cd ${DEDALUS}; git pull; cd -
 else
 	git clone https://github.com/beijingren/${DEDALUS}.git
+fi
+
+if test -d ${BERTIE}; then
+	cd ${BERTIE}; git pull; cd -
+else
+	git clone https://github.com/beijingren/${BERTIE}.git
 fi

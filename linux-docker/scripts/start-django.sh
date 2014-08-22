@@ -17,6 +17,9 @@ echo "export XMLDB_PORT_8080_TCP_PORT=${XMLDB_PORT_8080_TCP_PORT}" >> /etc/apach
 echo "export SPARQL_PORT_3030_TCP_ADDR=${SPARQL_PORT_3030_TCP_ADDR}" >> /etc/apache2/envvars
 echo "export SPARQL_PORT_3030_TCP_PORT=${SPARQL_PORT_3030_TCP_PORT}" >> /etc/apache2/envvars
 
+cd /docker/bertie-uima
+mvn package
+
 cd /docker/roche-website
 
 # Install requirements

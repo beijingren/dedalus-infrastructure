@@ -8,7 +8,7 @@ docker kill django
 docker rm django
 
 docker build -t 0xffea/saucy-server-django - <<EOL
-FROM java:14.04
+FROM java:latest
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu saucy universe" >> /etc/apt/sources.list
@@ -33,6 +33,7 @@ RUN apt-get -qy install		\
 	git			\
 	libapache2-mod-wsgi	\
 	libpython-dev		\
+	maven			\
 	memcached		\
 	tesseract-ocr		\
 	tesseract-ocr-chi-tra

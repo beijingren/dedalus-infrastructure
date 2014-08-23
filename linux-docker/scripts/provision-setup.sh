@@ -4,6 +4,9 @@ ROCHE=roche-website
 DEDALUS=dedalus-infrastructure
 BERTIE=bertie-uima
 
+# Delete local changes if reprovision
+rm -rf /docker
+
 # Shared data diretory for all containers
 mkdir -p /docker/apache2
 

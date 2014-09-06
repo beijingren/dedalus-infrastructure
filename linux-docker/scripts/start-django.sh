@@ -26,8 +26,7 @@ cd /docker/roche-website
 pip install -r requirements.txt
 
 # Sync database and migrate
-python manage.py syncdb --noinput
-python manage.py migrate
+python manage.py migrate --noinput
 
 # Generate L18N
 python manage.py compilemessages

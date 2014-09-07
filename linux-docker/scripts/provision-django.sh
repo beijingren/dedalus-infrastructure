@@ -31,7 +31,7 @@ RUN apt-get -qy --force-yes install		\
 	git			\
 	libapache2-mod-wsgi	\
 	libpython-dev		\
-	maven			\
+#	maven			\
 	memcached		\
 	tesseract-ocr		\
 	tesseract-ocr-chi-tra

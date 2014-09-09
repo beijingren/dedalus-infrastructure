@@ -27,6 +27,7 @@ RUN apt-get -qy --force-yes install		\
 	python-requests		\
 	python-sorl-thumbnail	\
 	apache2			\
+	fonts-droid		\
 	gettext			\
 	git			\
 	libapache2-mod-wsgi	\

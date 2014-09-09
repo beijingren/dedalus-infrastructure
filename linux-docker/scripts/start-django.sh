@@ -21,6 +21,15 @@ echo "export SPARQL_PORT_3030_TCP_PORT=${SPARQL_PORT_3030_TCP_PORT}" >> /etc/apa
 #
 #mvn package
 
+#
+# Install font
+#
+mkdir -p /usr/local/lib/python2.7/dist-packages/fpdf/font
+cp /usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf /usr/local/lib/python2.7/dist-packages/fpdf/font/
+
+#
+# Install web app
+#
 cd /docker/roche-website
 
 # Install requirements

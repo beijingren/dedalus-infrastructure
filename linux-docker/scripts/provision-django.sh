@@ -35,7 +35,8 @@ RUN apt-get -qy --force-yes install		\
 #	maven			\
 	memcached		\
 	tesseract-ocr		\
-	tesseract-ocr-chi-tra
+	tesseract-ocr-chi-tra	\
+	locales
 
 RUN useradd -m -p "docker" docker
 RUN locale-gen en_US.UTF-8

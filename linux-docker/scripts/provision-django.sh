@@ -8,7 +8,7 @@ docker kill django
 docker rm django
 
 docker build -t 0xffea/saucy-server-django - <<EOL
-FROM ubuntu:latest
+FROM ubuntu:14.04
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive

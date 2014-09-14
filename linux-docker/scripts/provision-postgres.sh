@@ -15,6 +15,7 @@ RUN apt-get -qy install		\
 	postgresql
 
 EXPOSE 5432
+RUN locale-gen en_US.UTF-8
 
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/start-postgres.sh /root/start-postgres.sh
 RUN chmod 0755 /root/start-postgres.sh

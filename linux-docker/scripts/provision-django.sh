@@ -13,7 +13,7 @@ MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get -qy --force-yes install		\
+RUN apt-get -qy --fix-missing --force-yes install		\
 	python-creoleparser	\
 	python-django		\
 	python-django-south	\
@@ -32,11 +32,9 @@ RUN apt-get -qy --force-yes install		\
 	git			\
 	libapache2-mod-wsgi	\
 	libpython-dev		\
-#	maven			\
 	memcached		\
 	tesseract-ocr		\
 	tesseract-ocr-chi-tra	\
-	locales			\
 	openjdk-7-jre
 
 RUN useradd -m -p "docker" docker

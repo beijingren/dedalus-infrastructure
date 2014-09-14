@@ -8,7 +8,7 @@ docker kill django
 docker rm django
 
 docker build -t 0xffea/saucy-server-django - <<EOL
-FROM ubuntu:14.04
+FROM java:latest
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
@@ -34,12 +34,9 @@ RUN apt-get -qy --fix-missing --force-yes install		\
 	libpython-dev		\
 	memcached		\
 	tesseract-ocr		\
-	tesseract-ocr-chi-tra	\
-	openjdk-7-jre
+	tesseract-ocr-chi-tra
 
 RUN useradd -m -p "docker" docker
-RUN locale-gen en_US.UTF-8
-RUN LANG=en_US.UTF-8
 
 EXPOSE 80
 EXPOSE 11211

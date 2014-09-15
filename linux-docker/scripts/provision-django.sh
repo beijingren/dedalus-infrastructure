@@ -24,6 +24,8 @@ RUN apt-get -qy --force-yes install		\
 	fonts-droid		\
 	gettext			\
 	git			\
+	openjdk-7-jdk		\
+	openjdk-7-jre		\
 	openjdk-6-jre-headless	\
 	libapache2-mod-wsgi	\
 	libpython-dev		\

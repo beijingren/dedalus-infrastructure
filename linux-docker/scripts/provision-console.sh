@@ -25,11 +25,12 @@ RUN apt-get -qy --force-yes install		\
 	openjdk-7-jre-headless	\
 	libapache2-mod-wsgi	\
 	postgresql-client	\
-	libpython-dev
+	libpython-dev		\
+	vim
 
 RUN useradd -m -p "docker" docker
 RUN locale-gen en_US.UTF-8
 RUN LANG=en_US.UTF-8
 EOL
 
-docker run -i --privileged -e DOCKER_PASSWORD=${PASSWORD} -p 80:80 -p 11211:11211 --name console --link postgres:db --link existdb:xmldb --link fuseki:sparql -v /docker:/docker:rw -t 0xffea/saucy-server-console /bin/bash
+docker run -i --privileged -e DOCKER_PASSWORD=${PASSWORD} -p 8001:8001 -p 11211:11211 --name console --link postgres:db --link existdb:xmldb --link fuseki:sparql -v /docker:/docker:rw -t 0xffea/saucy-server-console /bin/bash

@@ -30,7 +30,8 @@ RUN apt-get -qy --force-yes install		\
 
 RUN useradd -m -p "docker" docker
 RUN locale-gen en_US.UTF-8
-RUN LANG=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
 
 EXPOSE 80
 EXPOSE 11211

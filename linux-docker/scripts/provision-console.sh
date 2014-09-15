@@ -30,7 +30,8 @@ RUN apt-get -qy --force-yes install		\
 
 RUN useradd -m -p "docker" docker
 RUN locale-gen en_US.UTF-8
-RUN LANG=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
 EOL
 
 docker run -i --privileged -e DOCKER_PASSWORD=${PASSWORD} -p 8001:8001 --name console --link postgres:db --link existdb:xmldb --link fuseki:sparql -v /docker:/docker:rw -t 0xffea/saucy-server-console /bin/bash

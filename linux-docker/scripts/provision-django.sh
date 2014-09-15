@@ -13,7 +13,7 @@ MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get -qy --fix-missing --force-yes install		\
+RUN apt-get -qy --force-yes install		\
 	python-creoleparser	\
 	python-django		\
 	python-django-south	\

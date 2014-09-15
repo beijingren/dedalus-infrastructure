@@ -4,8 +4,8 @@
 
 PASSWORD=$(cat /docker/master-password.txt)
 
-docker kill django
-docker rm django
+docker kill console
+docker rm console
 
 docker build -t 0xffea/saucy-server-console - <<EOL
 FROM ubuntu:13.10

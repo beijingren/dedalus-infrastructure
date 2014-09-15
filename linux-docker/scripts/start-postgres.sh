@@ -11,6 +11,7 @@ pg_ctlcluster 9.3 main start
 su postgres -c psql <<EOL
 create role docker superuser createdb password '${PASSWORD}' login;
 create database docker WITH ENCODING 'UTF8' owner docker TEMPLATE=template0;
+SET client_encoding = 'UTF8';
 EOL
 
 su postgres -c psql <<EOL

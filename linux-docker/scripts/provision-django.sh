@@ -8,31 +8,24 @@ docker kill django
 docker rm django
 
 docker build -t 0xffea/saucy-server-django - <<EOL
-FROM java:latest
+FROM ubuntu:latest
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get -qy --force-yes install		\
-	python-creoleparser	\
 	python-django		\
-	python-django-south	\
-	python-imaging		\
 	python-lxml		\
-	python-markdown		\
-	python-memcache		\
 	python-pip		\
 	python-ply		\
 	python-psycopg2		\
 	python-requests		\
-	python-sorl-thumbnail	\
 	apache2			\
 	fonts-droid		\
 	gettext			\
 	git			\
 	libapache2-mod-wsgi	\
 	libpython-dev		\
-	memcached		\
 	tesseract-ocr		\
 	tesseract-ocr-chi-tra
 

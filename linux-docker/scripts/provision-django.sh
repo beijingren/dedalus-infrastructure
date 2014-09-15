@@ -24,6 +24,7 @@ RUN apt-get -qy --force-yes install		\
 	fonts-droid		\
 	gettext			\
 	git			\
+	openjdk-6-jre-headless	\
 	libapache2-mod-wsgi	\
 	libpython-dev		\
 	tesseract-ocr		\

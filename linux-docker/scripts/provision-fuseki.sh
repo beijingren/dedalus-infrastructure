@@ -13,6 +13,10 @@ RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get -qy install		\
 	git
 
+RUN locale-gen en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
+
 EXPOSE 3030
 
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/start-fuseki.sh /root/start-fuseki.sh

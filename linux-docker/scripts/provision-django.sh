@@ -14,12 +14,10 @@ MAINTAINER David Höppner <0xffea@gmail.com>
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get -qy --force-yes install		\
-	python-django		\
 	python-lxml		\
 	python-pip		\
 	python-ply		\
 	python-psycopg2		\
-	python-requests		\
 	apache2			\
 	fonts-droid		\
 	gettext			\

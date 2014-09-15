@@ -31,6 +31,8 @@ RUN apt-get -qy --force-yes install		\
 	tesseract-ocr-chi-tra
 
 RUN useradd -m -p "docker" docker
+RUN locale-gen en_US.UTF-8
+RUN LANG=en_US.UTF-8
 
 EXPOSE 80
 EXPOSE 11211

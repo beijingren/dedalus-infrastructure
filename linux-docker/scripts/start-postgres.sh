@@ -2,6 +2,8 @@
 
 PASSWORD=$(cat /docker/master-password.txt)
 
+export LANG="en_US.UTF-8"
+
 echo "listen_addresses = '*'" >> /etc/postgresql/9.3/main/postgresql.conf
 # XXX: fix in production
 echo "hostssl all     all     0.0.0.0/0       md5" >> /etc/postgresql/9.3/main/pg_hba.conf

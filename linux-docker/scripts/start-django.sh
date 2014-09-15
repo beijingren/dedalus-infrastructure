@@ -21,6 +21,7 @@ echo "export SPARQL_PORT_3030_TCP_PORT=${SPARQL_PORT_3030_TCP_PORT}" >> /etc/apa
 # Set postgres client encoding
 #
 export PGCLIENTENCODING="UTF8"
+export LANG="en_US.UTF-8"
 
 #cd /docker/bertie-uima
 #

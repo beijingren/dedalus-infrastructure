@@ -4,6 +4,8 @@
 # Fuseki
 #
 
+export LANG="en_US.UTF-8"
+
 cd /root
 
 wget http://www.apache.org/dist/jena/binaries/jena-fuseki-1.1.0-distribution.tar.gz

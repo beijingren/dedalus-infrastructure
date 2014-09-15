@@ -26,7 +26,7 @@ RUN apt-get -qy --force-yes install		\
 	git			\
 	openjdk-7-jdk		\
 	openjdk-7-jre		\
-	openjdk-6-jre-headless	\
+	openjdk-7-jre-headless	\
 	libapache2-mod-wsgi	\
 	libpython-dev		\
 	tesseract-ocr		\

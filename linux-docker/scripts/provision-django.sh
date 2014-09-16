@@ -42,4 +42,4 @@ RUN chmod 0755 /home/docker/start-django.sh
 CMD ["/home/docker/start-django.sh"]
 EOL
 
-docker run -d --privileged -e DOCKER_PASSWORD=${PASSWORD} -p 80:80 -p 11211:11211 --name django --link postgres:db --link existdb:xmldb --link fuseki:sparql -v /docker:/docker:rw -t 0xffea/saucy-server-django
+docker run -d --privileged -e DOCKER_PASSWORD=${PASSWORD} -e LANG="en_US.UTF-8" -p 80:80 -p 11211:11211 --name django --link postgres:db --link existdb:xmldb --link fuseki:sparql -v /docker:/docker:rw -t 0xffea/saucy-server-django

@@ -2,8 +2,8 @@
 # Celery container
 #
 
-docker kill /celery
-docker rm /celery
+docker kill celery
+docker rm celery
 
 docker build -t 0xffea/saucy-server-celery - <<EOL
 FROM ubuntu:latest

@@ -22,10 +22,10 @@ RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
 
 EXPOSE 5672
 
-ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/scripts/start-celery.sh /home/celery/start-celery.sh
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/start-celery.sh /home/celery/start-celery.sh
 RUN chmod 0755 /home/celery/start-celery.sh
 
 CMD ["/home/celery/start-celery.sh"]
 EOL
 
-docker run -d --name celery -p 5672:5672 -v /docker:/docker:rw -t 0xffea/saucy-server-celery
+docker run -d --privileged --name celery -p 5672:5672 -v /docker:/docker:rw -t 0xffea/saucy-server-celery

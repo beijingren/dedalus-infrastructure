@@ -9,6 +9,8 @@ docker build -t 0xffea/saucy-server-celery - <<EOL
 FROM ubuntu:latest
 MAINTAINER David Höppner <0xffea@gmail.com>
 
+RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
+
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get install -y		\

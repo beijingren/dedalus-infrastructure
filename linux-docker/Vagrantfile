@@ -15,6 +15,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # postgresql server
   config.vm.network :forwarded_port, guest: 5432, host: 5432
 
+  # rabbitmq server
+  config.vm.network :forwarded_port, quest: 5672, host: 5672
+
   # existdb server
   config.vm.network :forwarded_port, guest: 8080, host: 8080
 
@@ -23,6 +26,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # cache server (memcached)
   config.vm.network :forwarded_port, guest: 11211, host: 11211
+
+  # rabbitmq management
+  config.vm.network :forwarded_port, guest: 15672, host: 15672
 
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
@@ -49,7 +55,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-fuseki.sh"
 
+  # run rabbitmq container
+  config.vm.provision "shell",
+    path: "scripts/provision-celery.sh"
+
   # build django container
   config.vm.provision "shell",
     path: "scripts/provision-django.sh"
+
+  # build console container
+  config.vm.provision "shell",
+    path: "scripts/provision-console.sh"
 end

@@ -20,17 +20,11 @@ def uima_callback(channel, method, props, body):
 
     uima = json.loads(body)
 
-    collection_path = None
 
     text = uima['text']
     lemma = uima['lemma']
     function = uima['function']
-
-    os.chdir('/docker/dublin-store')
-    for (dirpath, dirnames, filenames) in os.walk(u'浙江大學圖書館'):
-        if dirpath.endswith(unicode(text)):
-            collection_path = '/docker/dublin-store/' + dirpath
-            break
+    collection_path = uima['collection_path']
 
     # Build owl
     owl_file = open("/docker/dublin-store/rdf/placename_fragment.rdf")

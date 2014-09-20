@@ -20,7 +20,6 @@ def uima_callback(channel, method, props, body):
 
     uima = json.loads(body)
 
-
     text = uima['text']
     lemma = uima['lemma']
     function = uima['function']
@@ -34,6 +33,9 @@ def uima_callback(channel, method, props, body):
     f = tempfile.NamedTemporaryFile(delete=False)
     f.write(owl_fragment.encode('utf-8'))
     f.close()
+
+    print collection_path
+    print f.name
 
     # Call UIMA analysis engine
     result = subprocess.call(["/usr/bin/java", "-Dfile.encoding=UTF-8", "-jar", BERTIE_JAR,

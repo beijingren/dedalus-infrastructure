@@ -16,6 +16,8 @@ echo "export XMLDB_PORT_8080_TCP_ADDR=${XMLDB_PORT_8080_TCP_ADDR}" >> /etc/apach
 echo "export XMLDB_PORT_8080_TCP_PORT=${XMLDB_PORT_8080_TCP_PORT}" >> /etc/apache2/envvars
 echo "export SPARQL_PORT_3030_TCP_ADDR=${SPARQL_PORT_3030_TCP_ADDR}" >> /etc/apache2/envvars
 echo "export SPARQL_PORT_3030_TCP_PORT=${SPARQL_PORT_3030_TCP_PORT}" >> /etc/apache2/envvars
+echo "export RABBITMQ_PORT_5672_TCP_ADDR=${RABBITMQ_PORT_5672_TCP_ADDR}" >> /etc/apache2/envvars
+echo "export RABBITMQ_PORT_5672_TCP_PORT=${RABBITMQ_PORT_5672_TCP_PORT}" >> /etc/apache2/envvars
 
 #
 # Set postgres client encoding

@@ -63,6 +63,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-django.sh"
 
+  # build UIMA worker container
+  config.vm.provision "shell",
+    path: "scripts/provision-uima-worker.sh"
+
   # build console container
   config.vm.provision "shell",
     path: "scripts/provision-console.sh"

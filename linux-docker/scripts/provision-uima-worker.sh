@@ -19,7 +19,7 @@ RUN useradd -m -p "uima" uima
 RUN locale-gen en_US.UTF-8
 RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
 
-ADD scripts/start-uima-worker.sh /home/uima/start-uima-worker.sh
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/start-uima-worker.sh /home/uima/start-uima-worker.sh
 RUN chmod 0755 /home/docker/start-uima-worker.sh
 
 CMD ["/home/docker/start-uima-worker.sh"]

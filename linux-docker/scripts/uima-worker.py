@@ -20,32 +20,46 @@ def uima_callback(channel, method, props, body):
 
     uima = json.loads(body)
 
-    text = uima['text']
-    lemma = uima['lemma']
     function = uima['function']
-    collection_path = uima['collection_path']
 
-    # Build owl
-    owl_file = open("/docker/dublin-store/rdf/placename_fragment.rdf")
-    owl_fragment = owl_file.read().decode('utf-8')
-    owl_fragment = owl_fragment.format(lemma)
+    if not function == 'persname' and not function == 'placename' and not function == 'term':
+        response = "ERROR"
+    else:
+        text = uima['text']
+        lemma = uima['lemma']
+        collection_path = uima['collection_path']
 
-    f = tempfile.NamedTemporaryFile(delete=False)
-    f.write(owl_fragment.encode('utf-8'))
-    f.close()
+        # Dummy elements
+        placename = u'廬陵'
+        persname = u'蘇舜欽'
+        term = u'節度使'
 
-    print collection_path
-    print f.name
+        if function == 'persname':
+            persname = lemma
+        elif function == 'placename':
+            placename = lemma
+        else:
+            term = lemma
 
-    # Call UIMA analysis engine
-    result = subprocess.call(["/usr/bin/java", "-Dfile.encoding=UTF-8", "-jar", BERTIE_JAR,
-                              "--tei",
-                              "--directory", collection_path,
-                              "--owl", f.name])
-    # Remove tempfile
-    os.unlink(f.name)
+        # Build owl
+        owl_file = open("/docker/dublin-store/rdf/owl_fragment.rdf")
+        owl_fragment = owl_file.read().decode('utf-8')
+        owl_fragment = owl_fragment.format(persname=persname, placename=placename, term=term)
 
-    response = "UIMA"
+        f = tempfile.NamedTemporaryFile(delete=False)
+        f.write(owl_fragment.encode('utf-8'))
+        f.close()
+
+        # Call UIMA analysis engine
+        result = subprocess.call(["/usr/bin/java", "-Dfile.encoding=UTF-8", "-jar", BERTIE_JAR,
+                                  "--tei",
+                                  "--directory", collection_path,
+                                  "--owl", f.name])
+        # Remove tempfile
+        os.unlink(f.name)
+
+        response = "UIMA"
+
     channel.basic_publish(exchange='',
                           routing_key=props.reply_to,
                           properties=BasicProperties(correlation_id=props.correlation_id),

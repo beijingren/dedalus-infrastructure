@@ -21,8 +21,8 @@ RUN useradd -m -p "uima" uima
 RUN locale-gen en_US.UTF-8
 RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
 
-RUN git config --global user.name "Beijingren"
-RUN git config --global user.email "0xffea@gmail.com"
+RUN git config --global user.name "北京人"
+RUN git config --global user.email "schlick.moritz1@gmail.com"
 RUN git config --global push.default simple
 
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/uima-worker.py /home/uima/uima-worker.py

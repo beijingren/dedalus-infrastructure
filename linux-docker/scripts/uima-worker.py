@@ -3,9 +3,10 @@
 
 import json
 import os
+import subprocess
 import sys
 import tempfile
-import subprocess
+import time
 
 from pika import BasicProperties
 from pika import BlockingConnection
@@ -70,10 +71,14 @@ def uima_callback(channel, method, props, body):
     subprocess.call(["ssh-agent", "bash", "-c", "ssh-add /docker/github_rsa ; /usr/bin/git pull;"])
 
     # Call UIMA analysis engine
+    start_uima = time.time()
     result = subprocess.call(["/usr/bin/java", "-Dfile.encoding=UTF-8", "-jar", BERTIE_JAR,
                               "--tei",
                               "--directory", collection_path,
                               "--owl", f.name])
+    done_uima = time.time()
+    print done_uima - start_uima
+
     # Remove tempfile
     os.unlink(f.name)
 

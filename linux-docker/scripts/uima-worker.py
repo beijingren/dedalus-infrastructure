@@ -19,6 +19,7 @@ def uima_callback(channel, method, props, body):
     print " [x] Received %r" % (body,)
 
     def send_response(response):
+        print "Sending response..."
         channel.basic_publish(exchange='',
                               routing_key=props.reply_to,
                               properties=BasicProperties(correlation_id=props.correlation_id),

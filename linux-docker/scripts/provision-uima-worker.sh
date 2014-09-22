@@ -17,8 +17,12 @@ RUN apt-get -qy install		\
 	openjdk-7-jre-headless
 
 RUN useradd -m -p "uima" uima
+
 RUN locale-gen en_US.UTF-8
 RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
+
+RUN git config --global user.name "Beijingren"
+RUN git config --global user.email "0xffea@gmail.com"
 
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/uima-worker.py /home/uima/uima-worker.py
 RUN chmod 0755 /home/uima/uima-worker.py

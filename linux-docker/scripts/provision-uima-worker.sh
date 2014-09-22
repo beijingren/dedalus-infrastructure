@@ -31,4 +31,4 @@ RUN chmod 0755 /home/uima/uima-worker.py
 CMD ["/home/uima/uima-worker.py"]
 EOL
 
-docker run -d --name uima-worker-01 -e LANG="en_US.UTF-8" --link celery:rabbitmq -v /docker:/docker:rw -t 0xffea/saucy-server-uima
+docker run -d --name uima-worker-01 -e LANG="en_US.UTF-8" --link celery:rabbitmq -v /docker:/docker:rw -v /root:/root:rw -t 0xffea/saucy-server-uima

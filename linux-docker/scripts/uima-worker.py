@@ -96,7 +96,7 @@ def uima_callback(channel, method, props, body):
 
     # No single juan was annotated, so send response now
     if juan == -1:
-        send_repsonse("OK")
+        send_response("OK")
 
     # Remove tempfile
     os.unlink(f.name)

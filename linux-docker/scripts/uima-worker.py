@@ -78,7 +78,7 @@ def uima_callback(channel, method, props, body):
                                   "-jar", BERTIE_JAR,
                                   "--tei",
                                   "--file", collection_path + file_name,
-                                  "--owl", f.name], stdout=os.devnull, stderr=os.devnull)
+                                  "--owl", f.name])
 
         # Send response early
         send_response("OK")
@@ -89,7 +89,7 @@ def uima_callback(channel, method, props, body):
                               "-jar", BERTIE_JAR,
                               "--tei",
                               "--directory", collection_path,
-                              "--owl", f.name], stdout=os.devnull, stderr=os.devnull)
+                              "--owl", f.name])
     done_uima = time.time()
     print "RUNTIME"
     print done_uima - start_uima

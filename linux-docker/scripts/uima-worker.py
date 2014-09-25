@@ -58,7 +58,7 @@ def uima_callback(channel, method, props, body):
 
 
     # Build owl
-    owl_file = open("/docker/dublin-store/rdf/owl_fragment.rdf")
+    owl_file = open("/docker/dublin-store/rdf/owl_fragment.owl")
     owl_fragment = owl_file.read().decode('utf-8')
     owl_fragment = owl_fragment.format(persname=persname, placename=placename, term=term)
 
@@ -78,7 +78,7 @@ def uima_callback(channel, method, props, body):
                                   "-jar", BERTIE_JAR,
                                   "--tei",
                                   "--file", collection_path + file_name,
-                                  "--owl", f.name])
+                                  "--owl", f.name], stdout=os.devnull, stderr=os.devnull)
 
         # Send response early
         send_response("OK")
@@ -89,7 +89,7 @@ def uima_callback(channel, method, props, body):
                               "-jar", BERTIE_JAR,
                               "--tei",
                               "--directory", collection_path,
-                              "--owl", f.name])
+                              "--owl", f.name], stdout=os.devnull, stderr=os.devnull)
     done_uima = time.time()
     print "RUNTIME"
     print done_uima - start_uima

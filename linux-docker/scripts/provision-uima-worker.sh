@@ -15,6 +15,7 @@ RUN apt-get -qy install		\
 	git			\
 	python-pika		\
 	python-pip		\
+	libpython-dev		\
 	openjdk-7-jre-headless
 
 RUN useradd -m -p "uima" uima

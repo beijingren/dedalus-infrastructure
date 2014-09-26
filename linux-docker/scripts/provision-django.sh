@@ -33,6 +33,8 @@ RUN locale-gen en_US.UTF-8
 RUN export LANG=en_US.UTF-8
 RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
 
+RUN pip install django django-leaflet fpdf lxml pinyin psycopg2 python-creole requests wikipedia pika eulxml eulexistdb SPARQLWrapper
+
 EXPOSE 80
 EXPOSE 11211
 

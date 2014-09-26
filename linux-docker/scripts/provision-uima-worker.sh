@@ -14,6 +14,7 @@ RUN apt-get update
 RUN apt-get -qy install		\
 	git			\
 	python-pika		\
+	python-lxml		\
 	python-pip		\
 	libpython-dev		\
 	openjdk-7-jre-headless

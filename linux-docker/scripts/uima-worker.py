@@ -118,7 +118,7 @@ def uima_callback(channel, method, props, body):
     # Reload collection
     print " [ ] Reloading collection"
     os.chdir('/docker/dublin-store')
-    xmldb = ExistDB(server_url="http://admin:glen32@localhost:8080/exist", timeout=10)
+    xmldb = ExistDB(server_url="http://admin:glen32@" + existdb_host + ":8080/exist", timeout=10)
     for (dirpath, dirnames, filenames) in os.walk(u'浙江大學圖書館'):
         if dirpath.endswith(unicode(lemma)):
             for filename in filenames:
@@ -131,9 +131,10 @@ if __name__ == "__main__":
     #
     try:
         rabbitmq_host = os.environ['RABBITMQ_PORT_5672_TCP_ADDR']
+        existdb_host = os.environ['XMLDB_PORT_8080_TCP_ADDR']
     except KeyError:
         print "Can't find rabbitmq server. Giving up."
-        print "Please set RABBITMQ_PORT_5672_TCP_ADDR."
+        print "Please set RABBITMQ_PORT_5672_TCP_ADDR, XMLDB_PORT_8080_TCP_ADDR ."
         sys.exit(-1)
 
     connection = BlockingConnection(ConnectionParameters(host=rabbitmq_host))

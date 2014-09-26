@@ -83,7 +83,7 @@ def uima_callback(channel, method, props, body):
                                   "--owl", f.name])
 
         # Reload single document for faster response
-        xmldb = ExistDB(server_url="http://admin:glen32@localhost:8080/exist", timeout=10)
+        xmldb = ExistDB(server_url="http://admin:glen32@" + existdb_host + ":8080/exist", timeout=10)
         db_collection_path = 'docker/texts/' + \
              collection_path.replace('/docker/dublin-store/', '')
         with open(file_name) as newly_annotated_file:

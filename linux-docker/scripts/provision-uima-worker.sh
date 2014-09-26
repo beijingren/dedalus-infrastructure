@@ -14,6 +14,7 @@ RUN apt-get update
 RUN apt-get -qy install		\
 	git			\
 	python-pika		\
+	python-pip		\
 	openjdk-7-jre-headless
 
 RUN useradd -m -p "uima" uima
@@ -25,10 +26,12 @@ RUN git config --global user.name "北京人"
 RUN git config --global user.email "schlick.moritz1@gmail.com"
 RUN git config --global push.default simple
 
+RUN pip install eulexistdb
+
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/scripts/uima-worker.py /home/uima/uima-worker.py
 RUN chmod 0755 /home/uima/uima-worker.py
 
 CMD ["/home/uima/uima-worker.py"]
 EOL
 
-docker run -d --privileged --name uima-worker-01 -e LANG="en_US.UTF-8" --link celery:rabbitmq -v /docker:/docker:rw -v /root:/root:rw -t 0xffea/saucy-server-uima
+docker run -d --privileged --name uima-worker-01 -e LANG="en_US.UTF-8" --link celery:rabbitmq --link existdb:xmldb -v /docker:/docker:rw -v /root:/root:rw -t 0xffea/saucy-server-uima

@@ -12,6 +12,8 @@ from pika import BasicProperties
 from pika import BlockingConnection
 from pika import ConnectionParameters
 
+from eulexistdb.db import ExistDB
+
 
 BERTIE_JAR = "/docker/bertie-uima/target/bertie-uima-0.0.1-SNAPSHOT.jar"
 
@@ -20,7 +22,7 @@ def uima_callback(channel, method, props, body):
     print " [x] Received %r" % (body,)
 
     def send_response(response):
-        print "Sending response..."
+        print " [ ] Sending response"
         channel.basic_publish(exchange='',
                               routing_key=props.reply_to,
                               properties=BasicProperties(correlation_id=props.correlation_id),
@@ -72,13 +74,20 @@ def uima_callback(channel, method, props, body):
 
     # Call UIMA analysis engine
     if not juan == -1:
-        file_name = "/%03d.xml" % (juan,)
+        file_name = os.path.join(collection_path, "%03d.xml" % (juan,))
         result = subprocess.call(["/usr/bin/java", "-Dfile.encoding=UTF-8",
                                   "-Djava.util.logging.config.file=/docker/bertie-uima/src/main/properties/Logger.properties",
                                   "-jar", BERTIE_JAR,
                                   "--tei",
-                                  "--file", collection_path + file_name,
+                                  "--file", file_name,
                                   "--owl", f.name])
+
+        # Reload single document for faster response
+        xmldb = ExistDB(server_url="http://admin:glen32@localhost:8080/exist", timeout=10)
+        db_collection_path = 'docker/texts/' + \
+             collection_path.replace('/docker/dublin-store/', '')
+        with open(file_name) as newly_annotated_file:
+            xmldb.load(newly_annotated_file, db_collection_path + '/' + os.path.split(file_name)[1], True)
 
         # Send response early
         send_response("OK")
@@ -104,6 +113,17 @@ def uima_callback(channel, method, props, body):
     # Commit the mess
     subprocess.call(["/usr/bin/git", "commit", "-m", "UIMA " + lemma, "."])
     subprocess.call(["ssh-agent", "bash", "-c", "ssh-add /docker/github_rsa ; /usr/bin/git push;"])
+
+    # TODO: move this into a watchdog container for automatic reload of changed documents
+    # Reload collection
+    print " [ ] Reloading collection"
+    os.chdir('/docker/dublin-store')
+    xmldb = ExistDB(server_url="http://admin:glen32@localhost:8080/exist", timeout=10)
+    for (dirpath, dirnames, filenames) in os.walk(u'浙江大學圖書館'):
+        if dirpath.endswith(unicode(lemma)):
+            for filename in filenames:
+                with open(dirpath + '/' + filename) as f:
+                    xmldb.load(f, 'docker/texts' + '/' + dirpath + '/' + filename, True)
 
 if __name__ == "__main__":
     #

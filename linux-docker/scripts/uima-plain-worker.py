@@ -12,8 +12,6 @@ from pika import BasicProperties
 from pika import BlockingConnection
 from pika import ConnectionParameters
 
-from eulexistdb.db import ExistDB
-
 
 BERTIE_JAR = "/docker/bertie-uima/target/bertie-uima-0.0.1-SNAPSHOT.jar"
 

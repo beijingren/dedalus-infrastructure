@@ -5,9 +5,9 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "coreos-stable"
+  config.vm.box = "coreos-beta"
   config.vm.box_version = ">= 308.0.1"
-  config.vm.box_url = "http://stable.release.core-os.net/amd64-usr/current/coreos_production_vagrant.json"
+  config.vm.box_url = "http://beta.release.core-os.net/amd64-usr/current/coreos_production_vagrant.json"
 
   # web server
   config.vm.network :forwarded_port, guest: 80, host: 8000
@@ -66,6 +66,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # build UIMA worker container
   config.vm.provision "shell",
     path: "scripts/provision-uima-worker.sh"
+
+  # build UIMA plain worker container
+  config.vm.provision "shell",
+    path: "scripts/provision-uima-plain-worker.sh"
 
   # build console container
   config.vm.provision "shell",

@@ -2,8 +2,8 @@
 # UIMA collection worker container
 #
 
-docker kill uima-plain-worker
-docker rm uima-plain-worker
+docker kill uima-plain
+docker rm uima-plain
 
 docker build -t 0xffea/uima-plain - <<EOL
 FROM ubuntu:13.10

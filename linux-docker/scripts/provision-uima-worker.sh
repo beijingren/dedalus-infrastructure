@@ -36,4 +36,11 @@ RUN chmod 0755 /home/uima/uima-worker.py
 CMD ["/home/uima/uima-worker.py"]
 EOL
 
+#
+# /root/.ssh/config
+#
+# Host github.com
+#     User beijingren
+#     IdentityFile /docker/github_rsa
+
 docker run -d --privileged --name uima-worker-01 -e LANG="en_US.UTF-8" --link celery:rabbitmq --link existdb:xmldb -v /docker:/docker:rw -v /root:/root:rw -t 0xffea/saucy-server-uima

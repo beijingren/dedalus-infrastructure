@@ -31,7 +31,8 @@ def uima_callback(channel, method, props, body):
     try:
         uima = json.loads(body)
         text = uima['text']
-    except ValueError, KeyError:
+        mode = uima['mode']
+    except (ValueError, KeyError):
         send_response("ERROR")
         return
 
@@ -45,7 +46,8 @@ def uima_callback(channel, method, props, body):
                               "-jar", BERTIE_JAR,
                               "--plain",
                               "--file", f.name,
-                              "--owl", "/docker/dublin-store/rdf/sikuquanshu.owl"])
+                              "--owl", "/docker/dublin-store/rdf/sikuquanshu.owl",
+                              "--mode", mode])
     done_uima = time.time()
     print "RUNTIME"
     print done_uima - start_uima

@@ -87,6 +87,7 @@ def uima_callback(channel, method, props, body):
         db_collection_path = 'docker/texts/' + \
              collection_path.replace('/docker/dublin-store/', '')
         with open(file_name) as newly_annotated_file:
+            print " [ ] Reloading single document"
             xmldb.load(newly_annotated_file, db_collection_path + '/' + os.path.split(file_name)[1], True)
 
         # Send response early
@@ -117,12 +118,13 @@ def uima_callback(channel, method, props, body):
     # TODO: move this into a watchdog container for automatic reload of changed documents
     # Reload collection
     print " [ ] Reloading collection"
-    os.chdir('/docker/dublin-store')
+    os.chdir('/docker/dublin-store/')
     xmldb = ExistDB(server_url="http://admin:glen32@" + existdb_host + ":8080/exist", timeout=10)
     for (dirpath, dirnames, filenames) in os.walk(u'浙江大學圖書館'):
-        if dirpath.endswith(unicode(lemma)):
+        if dirpath.endswith(unicode(text)):
             for filename in filenames:
                 with open(dirpath + '/' + filename) as f:
+                    print dirpath + '/' + filename
                     xmldb.load(f, 'docker/texts' + '/' + dirpath + '/' + filename, True)
 
 if __name__ == "__main__":

@@ -21,6 +21,7 @@ RUN apt-get update && apt-get -qy install \
 
 WORKDIR /docker/julia
 RUN julia -e 'Pkg.add("IJulia")'
+RUN julia -e 'Pkg.add("Gadfly")'
 
 EXPOSE 8998
 

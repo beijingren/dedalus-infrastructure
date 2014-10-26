@@ -25,7 +25,7 @@ RUN julia -e 'Pkg.add("Gadfly")'
 
 EXPOSE 8998
 
-ENTRYPOINT ipython notebook --profile julia --ip=* --no-browser --NotebookApp.webapp_settings="{'static_url_prefix':'/julia/static/'}"
+CMD ipython notebook --profile julia --ip=* --no-browser --NotebookApp.webapp_settings="{'static_url_prefix':'/julia/static/'}" --port 8998
 EOL
 
 docker run -d -e LANG="en_US.UTF-8" -p 8998:8998  --name julia -v /docker:/docker:rw -t 0xffea/julia

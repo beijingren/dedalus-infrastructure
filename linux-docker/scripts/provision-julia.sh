@@ -10,21 +10,16 @@ FROM ubuntu:latest
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get -qy install	--fix-missing	\
-	software-properties-common
+RUN apt-get update && RUN apt-get -qy install software-properties-common
 
 RUN add-apt-repository --yes ppa:staticfloat/juliareleases
-RUN apt-get update
-
-RUN apt-get -qy install		\
+RUN apt-get update && RUN apt-get -qy install		\
 	julia	\
 	ipython	\
 	ipython-notebook \
 	libzmq-dev
 
 RUN julia -e 'Pkg.add("IJulia")'
-
 
 EXPOSE 8998
 

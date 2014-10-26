@@ -16,6 +16,7 @@ RUN add-apt-repository --yes ppa:staticfloat/juliareleases
 RUN apt-get update && apt-get -qy install \
 	julia		\
 	python-pip	\
+	libpython-dev	\
 	libzmq-dev
 
 RUN pip install ipython[notebook]

@@ -41,6 +41,10 @@ def uima_callback(channel, method, props, body):
         send_response("ERROR")
         return
 
+    # This could be a fake crawler request
+    if not lemma or not collection_path:
+        return
+
     # Dummy elements
     # TODO: annotations should handle emtpy result properly
     placename = u'廬陵'

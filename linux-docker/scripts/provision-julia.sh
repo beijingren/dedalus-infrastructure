@@ -14,10 +14,11 @@ RUN apt-get update && apt-get -qy install software-properties-common
 
 RUN add-apt-repository --yes ppa:staticfloat/juliareleases
 RUN apt-get update && apt-get -qy install \
-	julia	\
-	ipython	\
-	ipython-notebook \
+	julia		\
+	python-pip	\
 	libzmq-dev
+
+RUN pip install pip install ipython[notebook]
 
 WORKDIR /docker/julia
 RUN julia -e 'Pkg.add("IJulia")'

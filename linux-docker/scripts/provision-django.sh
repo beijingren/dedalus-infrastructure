@@ -24,6 +24,7 @@ RUN apt-get -qy --force-yes install		\
 	git			\
 	openjdk-7-jre-headless	\
 	libapache2-mod-wsgi	\
+	libapache2-mod-proxy-html \
 	libpython-dev		\
 	tesseract-ocr		\
 	tesseract-ocr-chi-tra

@@ -19,6 +19,7 @@ RUN apt-get update && apt-get -qy install \
 	ipython-notebook \
 	libzmq-dev
 
+WORKDIR /docker/julia
 RUN julia -e 'Pkg.add("IJulia")'
 
 EXPOSE 8998

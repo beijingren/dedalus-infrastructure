@@ -74,6 +74,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-uima-plain-worker.sh"
 
+  # build julia container
+  config.vm.provision "shell",
+    path: "scripts/provision-julia.sh"
+
   # build console container
   config.vm.provision "shell",
     path: "scripts/provision-console.sh"

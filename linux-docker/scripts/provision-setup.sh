@@ -9,6 +9,7 @@ rm -rf /docker
 
 # Shared data diretory for all containers
 mkdir -p /docker/apache2
+mkdir -p /docker/julia
 
 echo -n "iSoof4Vo" > /docker/master-password.txt
 

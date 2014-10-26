@@ -39,6 +39,7 @@ RUN pip install django django-leaflet fpdf lxml pinyin psycopg2 python-creole re
 RUN a2enmod proxy
 RUN a2enmod proxy_html
 RUN a2enmod proxy_http 
+RUN a2enmod headers
 
 EXPOSE 80
 EXPOSE 11211

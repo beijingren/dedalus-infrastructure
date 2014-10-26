@@ -30,6 +30,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # rabbitmq management
   config.vm.network :forwarded_port, guest: 15672, host: 15672
 
+  # Julia notebook
+  config.vm.network :forwarded_port, guest: 8998, host: 8998
+
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
     vb.customize ["modifyvm", :id, "--memory", "2500"]

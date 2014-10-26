@@ -23,7 +23,7 @@ RUN julia -e 'Pkg.add("IJulia")'
 
 EXPOSE 8998
 
-ENTRYPOINT ipython notebook --profile julia
+ENTRYPOINT ipython notebook --profile julia --ip=* --no-browser
 EOL
 
 docker run -d -e LANG="en_US.UTF-8" -p 8998:8998  --name julia -v /docker:/docker:rw -t 0xffea/julia

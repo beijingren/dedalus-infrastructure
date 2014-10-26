@@ -11,7 +11,7 @@ MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get -qy install		\
+RUN apt-get -qy install	--fix-missing	\
 	software-properties-common
 
 RUN add-apt-repository --yes ppa:staticfloat/juliareleases

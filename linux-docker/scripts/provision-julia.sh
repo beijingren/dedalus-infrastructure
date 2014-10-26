@@ -16,6 +16,8 @@ RUN apt-get -qy install		\
 
 RUN add-apt-repository --yes ppa:staticfloat/juliareleases
 RUN apt-get update
+RUN apt-get remove julia
+
 RUN apt-get -qy install		\
 	julia	\
 	ipython	\

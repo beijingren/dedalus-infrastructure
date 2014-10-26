@@ -6,7 +6,7 @@ docker kill julia
 docker rm julia
 
 docker build -t 0xffea/julia - <<EOL
-FROM ubuntu:13.10
+FROM ubuntu:latest
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
@@ -16,7 +16,6 @@ RUN apt-get -qy install		\
 
 RUN add-apt-repository --yes ppa:staticfloat/juliareleases
 RUN apt-get update
-RUN apt-get remove julia
 
 RUN apt-get -qy install		\
 	julia	\

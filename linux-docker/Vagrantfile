@@ -62,6 +62,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-celery.sh"
 
+  # build julia container
+  config.vm.provision "shell",
+    path: "scripts/provision-julia.sh"
+
+
   # build django container
   config.vm.provision "shell",
     path: "scripts/provision-django.sh"
@@ -73,10 +78,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # build UIMA plain worker container
   config.vm.provision "shell",
     path: "scripts/provision-uima-plain-worker.sh"
-
-  # build julia container
-  config.vm.provision "shell",
-    path: "scripts/provision-julia.sh"
 
   # build console container
   config.vm.provision "shell",

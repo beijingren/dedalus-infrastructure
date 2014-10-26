@@ -36,6 +36,10 @@ RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
 
 RUN pip install django django-leaflet fpdf lxml pinyin psycopg2 python-creole requests wikipedia pika eulxml eulexistdb SPARQLWrapper
 
+RUN a2enmod proxy
+RUN a2enmod proxy_html
+RUN a2enmod proxy_http 
+
 EXPOSE 80
 EXPOSE 11211
 

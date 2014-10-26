@@ -18,7 +18,7 @@ RUN apt-get update && apt-get -qy install \
 	python-pip	\
 	libzmq-dev
 
-RUN pip install pip install ipython[notebook]
+RUN pip install ipython[notebook]
 
 WORKDIR /docker/julia
 RUN julia -e 'Pkg.add("IJulia")'

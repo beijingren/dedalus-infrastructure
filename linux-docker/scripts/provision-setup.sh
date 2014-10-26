@@ -3,13 +3,13 @@ DUBLIN=dublin-store
 ROCHE=roche-website
 DEDALUS=dedalus-infrastructure
 BERTIE=bertie-uima
+JULIA=julia-data
 
 # Delete local changes if reprovision
 rm -rf /docker
 
 # Shared data diretory for all containers
 mkdir -p /docker/apache2
-mkdir -p /docker/julia
 
 echo -n "iSoof4Vo" > /docker/master-password.txt
 
@@ -39,3 +39,11 @@ if test -d ${BERTIE}; then
 else
 	git clone https://github.com/beijingren/${BERTIE}.git
 fi
+
+if test -d julia; then
+	cd ${JULIA}; git pull; cd -
+else
+	git clone https://github.com/beijingren/${JULIA}.git julia
+fi
+
+

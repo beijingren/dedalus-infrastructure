@@ -43,6 +43,7 @@ RUN a2enmod proxy_html
 RUN a2enmod proxy_http 
 RUN a2enmod proxy_wstunnel
 RUN a2enmod headers
+RUN a2enmod xml2enc
 
 EXPOSE 80
 EXPOSE 11211

@@ -10,7 +10,7 @@ FROM 0xffea/saucy-server-existdb-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN export DEBIAN_FRONTEND=noninteractive
-RUN apt-get -qy install		\
+RUN apt-get update && apt-get -qy install		\
 	git
 
 RUN locale-gen en_US.UTF-8

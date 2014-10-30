@@ -15,6 +15,8 @@ RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get -qy --force-yes install		\
 	python-lxml		\
+	python-libxslt1		\
+	python-libxml2		\
 	python-pip		\
 	python-ply		\
 	python-psycopg2		\
@@ -35,6 +37,7 @@ RUN export LANG=en_US.UTF-8
 RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
 
 RUN pip install django django-leaflet fpdf lxml pinyin psycopg2 python-creole requests wikipedia pika eulxml eulexistdb SPARQLWrapper
+RUN pip install git+https://github.com/arafalov/sunburnt
 
 RUN a2dismod mpm_event
 RUN a2enmod mpm_prefork
@@ -54,4 +57,4 @@ RUN chmod 0755 /home/docker/start-django.sh
 CMD ["/home/docker/start-django.sh"]
 EOL
 
-docker run -d --privileged -e DOCKER_PASSWORD=${PASSWORD} -e LANG="en_US.UTF-8" -p 80:80 -p 11211:11211 --name django --link postgres:db --link existdb:xmldb --link fuseki:sparql --link celery:rabbitmq --link julia:julia -v /docker:/docker:rw -t 0xffea/saucy-server-django
+docker run -d --privileged -e DOCKER_PASSWORD=${PASSWORD} -e LANG="en_US.UTF-8" -p 80:80 -p 11211:11211 --name django --link postgres:db --link existdb:xmldb --link fuseki:sparql --link celery:rabbitmq --link julia:julia --link solr:solr -v /docker:/docker:rw -t 0xffea/saucy-server-django

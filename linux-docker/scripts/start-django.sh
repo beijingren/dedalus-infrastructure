@@ -20,6 +20,9 @@ echo "export RABBITMQ_PORT_5672_TCP_ADDR=${RABBITMQ_PORT_5672_TCP_ADDR}" >> /etc
 echo "export RABBITMQ_PORT_5672_TCP_PORT=${RABBITMQ_PORT_5672_TCP_PORT}" >> /etc/apache2/envvars
 echo "export JULIA_PORT_8998_TCP_ADDR=${JULIA_PORT_8998_TCP_ADDR}" >> /etc/apache2/envvars
 echo "export JULIA_PORT_8998_TCP_PORT=${JULIA_PORT_8998_TCP_PORT}" >> /etc/apache2/envvars
+echo "export SOLR_PORT_8983_TCP_ADDR=${SOLR_PORT_8983_TCP_ADDR}" >> /etc/apache2/envvars
+echo "export SOLR_PORT_8983_TCP_PORT=${SOLR_PORT_8983_TCP_PORT}" >> /etc/apache2/envvars
+
 echo "export LANG='en_US.UTF-8'" >> /etc/apache2/envvars
 echo "export LC_ALL='en_US.UTF-8'" >> /etc/apache2/envvars
 

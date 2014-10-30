@@ -69,6 +69,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     path: "scripts/provision-julia.sh"
 
+  # run solr container
+  config.vm.provision "shell",
+    path: "scripts/provision-solr.sh"
 
   # build django container
   config.vm.provision "shell",

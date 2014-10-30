@@ -33,6 +33,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Julia notebook
   config.vm.network :forwarded_port, guest: 8998, host: 8998
 
+  # Solr search
+  config.vm.network :forwarded_port, guest: 8983, host: 8983
+
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
     vb.customize ["modifyvm", :id, "--memory", "2500"]

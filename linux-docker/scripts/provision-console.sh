@@ -32,6 +32,9 @@ RUN useradd -m -p "docker" docker
 RUN locale-gen en_US.UTF-8
 RUN export LANG=en_US.UTF-8
 RUN echo "LANG=en_US.UTF-8" > /etc/default/locale
+
+RUN pip install django django-leaflet fpdf lxml pinyin psycopg2 python-creole requests wikipedia pika eulxml eulexistdb SPARQLWrapper
+RUN pip install git+https://github.com/arafalov/sunburnt
 EOL
 
-docker run -i --privileged -e DOCKER_PASSWORD=${PASSWORD} -e LANG="en_US.UTF-8" -p 8001:8001 --name console --link celery:rabbitmq --link postgres:db --link existdb:xmldb --link fuseki:sparql -v /docker:/docker:rw -t 0xffea/saucy-server-console /bin/bash
+docker run -i --privileged -e DOCKER_PASSWORD=${PASSWORD} -e LANG="en_US.UTF-8" -p 8001:8001 --name console --link celery:rabbitmq --link postgres:db --link existdb:xmldb --link fuseki:sparql --link solr:solr -v /docker:/docker:rw -t 0xffea/saucy-server-console /bin/bash

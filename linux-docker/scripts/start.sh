@@ -4,6 +4,7 @@ sh provision-setup.sh
 sh clean-docker.sh
 
 sh provision-existdb.sh
+sleep 2
 sh provision-postgres.sh
 sh provision-celery.sh
 sh provision-fuseki.sh

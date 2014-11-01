@@ -42,7 +42,7 @@ def uima_callback(channel, method, props, body):
         return
 
     # This could be a fake crawler request
-    if not lemma or not collection_path:
+    if not lemma or len(lemma) == 1 or not collection_path:
         return
 
     # Dummy elements

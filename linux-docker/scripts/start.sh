@@ -3,8 +3,8 @@
 sh provision-setup.sh
 sh clean-docker.sh
 
-sh provision-postgres.sh
 sh provision-existdb.sh
+sh provision-postgres.sh
 sh provision-celery.sh
 sh provision-fuseki.sh
 sh provision-julia.sh

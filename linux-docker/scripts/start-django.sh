@@ -60,7 +60,8 @@ python manage.py compilemessages
 export DJANGO_SETTINGS_MODULE=roche.settings
 
 # Load XML documents into exist and build the fulltext index
-python roche/scripts/xml-load.py
+#python roche/scripts/xml-load.py
+# DONE LATER
 
 python manage.py existdb load-index
 

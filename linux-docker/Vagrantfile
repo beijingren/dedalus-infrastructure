@@ -41,49 +41,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "2500"]
   end
 
-  # setup base system
+  # setup system
   config.vm.provision "shell",
-    path: "scripts/provision-setup.sh"
-
-  # remove running docker containers
-  config.vm.provision "shell",
-    path: "scripts/clean-docker.sh"
-
-  # build exist-db container
-  config.vm.provision "shell",
-    path: "scripts/provision-existdb.sh"
-
-  # build postgres container
-  config.vm.provision "shell",
-    path: "scripts/provision-postgres.sh"
-
-  # build fuseki container
-  config.vm.provision "shell",
-    path: "scripts/provision-fuseki.sh"
-
-  # run rabbitmq container
-  config.vm.provision "shell",
-    path: "scripts/provision-celery.sh"
-
-  # build julia container
-  config.vm.provision "shell",
-    path: "scripts/provision-julia.sh"
-
-  # run solr container
-  config.vm.provision "shell",
-    path: "scripts/provision-solr.sh"
-
-  # build django container
-  config.vm.provision "shell",
-    path: "scripts/provision-django.sh"
-
-  # build UIMA worker container
-  config.vm.provision "shell",
-    path: "scripts/provision-uima-worker.sh"
-
-  # build UIMA plain worker container
-  config.vm.provision "shell",
-    path: "scripts/provision-uima-plain-worker.sh"
+    path: "scripts/start.sh"
 
   # build console container
   config.vm.provision "shell",

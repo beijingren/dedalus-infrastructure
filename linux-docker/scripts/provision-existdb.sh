@@ -22,3 +22,4 @@ CMD ["/start-existdb.sh"]
 EOL
 
 docker run -d --name existdb -p 8080:8080 -v /docker:/docker:rw -t 0xffea/saucy-server-existdb
+sleep 20

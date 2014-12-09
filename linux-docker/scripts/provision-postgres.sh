@@ -9,7 +9,7 @@ docker build -t 0xffea/server-postgres - <<EOL
 FROM ubuntu:latest
 MAINTAINER David Höppner <0xffea@gmail.com>
 
-RUN export DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -qy install		\
 	postgresql

@@ -9,7 +9,7 @@ docker build -t 0xffea/saucy-server-fuseki - <<EOL
 FROM 0xffea/saucy-server-existdb-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
-RUN export DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -qy install		\
 	git
 

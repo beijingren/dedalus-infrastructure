@@ -11,7 +11,7 @@ docker build -t 0xffea/saucy-server-django - <<EOL
 FROM ubuntu:13.10
 MAINTAINER David Höppner <0xffea@gmail.com>
 
-RUN export DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -qy --force-yes install		\
 	python-lxml		\

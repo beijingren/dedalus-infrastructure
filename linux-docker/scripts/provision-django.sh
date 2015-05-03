@@ -12,8 +12,8 @@ FROM ubuntu:13.10
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update
-RUN apt-get -qy --force-yes install		\
+RUN sed -i -e "s/archive/old-releases/" /etc/apt/sources.list
+RUN apt-get update && apt-get -qy --force-yes install		\
 	python-lxml		\
 	python-libxslt1		\
 	python-libxml2		\

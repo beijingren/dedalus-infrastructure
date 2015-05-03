@@ -9,7 +9,7 @@ docker build -t 0xffea/solr - <<EOL
 FROM makuk66/docker-solr
 MAINTAINER David Höppner <0xffea@gmail.com>
 
-ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/configs/solr/schema.xml /opt/solr-4.10.1/example/solr/collection1/conf/
+ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/configs/solr/schema.xml /opt/solr-5.1.0/example/solr/collection1/conf/
 
 EXPOSE 8983
 CMD ["/bin/bash", "-c", "/opt/solr/bin/solr -f"]

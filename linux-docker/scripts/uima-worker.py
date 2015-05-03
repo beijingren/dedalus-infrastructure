@@ -131,6 +131,8 @@ def uima_callback(channel, method, props, body):
                     print dirpath + '/' + filename
                     xmldb.load(f, 'docker/texts' + '/' + dirpath + '/' + filename, True)
 
+    print " [x] Awaiting RPC UIMA requests"
+
 if __name__ == "__main__":
     #
     # Find rabbitmq server

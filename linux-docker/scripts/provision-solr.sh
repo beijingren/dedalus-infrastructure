@@ -11,6 +11,7 @@ MAINTAINER David Höppner <0xffea@gmail.com>
 
 RUN mkdir -p /opt/solr/example/solr/collection1/conf
 ADD https://raw.github.com/beijingren/dedalus-infrastructure/master/linux-docker/configs/solr/schema.xml /opt/solr/example/solr/collection1/conf/
+RUN chown solr.solr /opt/solr/example/solr/collection1/conf/schema.xml
 
 EXPOSE 8983
 CMD ["/bin/bash", "-c", "/opt/solr/bin/solr -f"]

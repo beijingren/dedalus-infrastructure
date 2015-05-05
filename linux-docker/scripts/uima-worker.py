@@ -19,7 +19,6 @@ BERTIE_JAR = "/docker/bertie-uima/target/bertie-uima-0.0.1-SNAPSHOT.jar"
 
 
 def uima_callback(channel, method, props, body):
-    print " [x] Received %r" % (body,)
 
     def send_response(response):
         print " [ ] Sending response"
@@ -40,6 +39,8 @@ def uima_callback(channel, method, props, body):
     except ValueError, KeyError:
         send_response("ERROR")
         return
+
+    print " [x] Received " + lemma
 
     # This could be a fake crawler request
     if not lemma or len(lemma) == 1 or not collection_path:

@@ -134,7 +134,7 @@ def uima_callback(channel, method, props, body):
         if dirpath.endswith(unicode(text)):
             for filename in filenames:
                 with open(os.path.join(dirpath, filename)) as f:
-                    print os.path.join(dirpath, filename)
+                    #print os.path.join(dirpath, filename)
                     try:
                         xmldb.load(f, os.path.join('docker', 'texts', dirpath, filename), True)
                     except:

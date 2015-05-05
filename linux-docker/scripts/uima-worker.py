@@ -76,6 +76,8 @@ def uima_callback(channel, method, props, body):
     os.chdir(collection_path)
     subprocess.call(["ssh-agent", "bash", "-c", "ssh-add /docker/github_rsa ; /usr/bin/git pull;"])
 
+    devnull = open(os.devnull, 'w')
+
     # Call UIMA analysis engine
     if not juan == -1:
         file_name = os.path.join(collection_path, "%03d.xml" % (juan,))
@@ -84,7 +86,7 @@ def uima_callback(channel, method, props, body):
                                   "-jar", BERTIE_JAR,
                                   "--tei",
                                   "--file", file_name,
-                                  "--owl", f.name])
+                                  "--owl", f.name], strout=devnull, strerr=devnull)
 
         # Reload single document for faster response
         xmldb = ExistDB(server_url="http://admin:glen32@" + existdb_host + ":8080/exist", timeout=10)
@@ -106,7 +108,7 @@ def uima_callback(channel, method, props, body):
                               "-jar", BERTIE_JAR,
                               "--tei",
                               "--directory", collection_path,
-                              "--owl", f.name])
+                              "--owl", f.name], strout=devnull, strerr=devnull)
     done_uima = time.time()
     print "RUNTIME"
     print done_uima - start_uima

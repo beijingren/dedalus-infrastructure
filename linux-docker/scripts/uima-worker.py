@@ -86,7 +86,7 @@ def uima_callback(channel, method, props, body):
                                   "-jar", BERTIE_JAR,
                                   "--tei",
                                   "--file", file_name,
-                                  "--owl", f.name], strout=devnull, strerr=devnull)
+                                  "--owl", f.name], stdout=devnull, stderr=devnull)
 
         # Reload single document for faster response
         xmldb = ExistDB(server_url="http://admin:glen32@" + existdb_host + ":8080/exist", timeout=10)
@@ -108,7 +108,7 @@ def uima_callback(channel, method, props, body):
                               "-jar", BERTIE_JAR,
                               "--tei",
                               "--directory", collection_path,
-                              "--owl", f.name], strout=devnull, strerr=devnull)
+                              "--owl", f.name], stdout=devnull, stderr=devnull)
     done_uima = time.time()
     print "RUNTIME"
     print done_uima - start_uima

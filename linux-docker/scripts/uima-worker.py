@@ -92,7 +92,10 @@ def uima_callback(channel, method, props, body):
              collection_path.replace('/docker/dublin-store/', '')
         with open(file_name) as newly_annotated_file:
             print " [ ] Reloading single document"
-            xmldb.load(newly_annotated_file, db_collection_path + '/' + os.path.split(file_name)[1], True)
+            try:
+                xmldb.load(newly_annotated_file, os.path.join(db_collection_path, os.path.split(file_name)[1]), True)
+            except:
+                print "FAILED TO LOAD " + file_name
 
         # Send response early
         send_response("OK")
@@ -127,9 +130,12 @@ def uima_callback(channel, method, props, body):
     for (dirpath, dirnames, filenames) in os.walk(u'浙江大學圖書館'):
         if dirpath.endswith(unicode(text)):
             for filename in filenames:
-                with open(dirpath + '/' + filename) as f:
-                    print dirpath + '/' + filename
-                    xmldb.load(f, 'docker/texts' + '/' + dirpath + '/' + filename, True)
+                with open(os.path.join(dirpath, filename)) as f:
+                    print os.path.join(dirpath, filename)
+                    try:
+                        xmldb.load(f, os.path.join('docker', 'texts', dirpath, filename), True)
+                    except:
+                        print "FAILED TO LOAD " + filename
 
     print " [x] Awaiting RPC UIMA requests"
 

@@ -73,11 +73,13 @@ def uima_callback(channel, method, props, body):
     f.write(owl_fragment.encode('utf-8'))
     f.close()
 
+    devnull = open(os.devnull, 'w')
+
     # Update repo before change
     os.chdir(collection_path)
-    subprocess.call(["ssh-agent", "bash", "-c", "ssh-add /docker/github_rsa ; /usr/bin/git pull;"])
+    subprocess.call(["ssh-agent", "bash", "-c", "ssh-add /docker/github_rsa ; /usr/bin/git pull;"],
+            stdout=devnull, stderr=devnull)
 
-    devnull = open(os.devnull, 'w')
 
     # Call UIMA analysis engine
     if not juan == -1:
@@ -122,8 +124,9 @@ def uima_callback(channel, method, props, body):
     os.unlink(f.name)
 
     # Commit the mess
-    subprocess.call(["/usr/bin/git", "commit", "-m", "UIMA " + lemma, "."])
-    subprocess.call(["ssh-agent", "bash", "-c", "ssh-add /docker/github_rsa ; /usr/bin/git push;"])
+    subprocess.call(["/usr/bin/git", "commit", "-m", "UIMA " + lemma, "."], stdout=devnull, stderr=devnull)
+    subprocess.call(["ssh-agent", "bash", "-c", "ssh-add /docker/github_rsa ; /usr/bin/git push;"],
+            stdout=devnull, stderr=devnull)
 
     # TODO: move this into a watchdog container for automatic reload of changed documents
     # Reload collection

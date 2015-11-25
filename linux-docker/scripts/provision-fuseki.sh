@@ -10,6 +10,7 @@ FROM 0xffea/saucy-server-existdb-amd64
 MAINTAINER David Höppner <0xffea@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
+RUN sed -i -e "s/archive/old-releases/" /etc/apt/sources.list
 RUN apt-get update && apt-get -qy install		\
 	git
 

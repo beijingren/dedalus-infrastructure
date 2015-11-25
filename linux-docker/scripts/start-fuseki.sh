@@ -8,11 +8,11 @@ export LANG="en_US.UTF-8"
 
 cd /root
 
-wget http://www.apache.org/dist/jena/binaries/jena-fuseki-1.1.1-distribution.tar.gz
-tar xf jena-fuseki-1.1.1-distribution.tar.gz
+wget http://mirror.23media.de/apache/jena/binaries/jena-fuseki1-1.3.0-distribution.tar.gz
+tar xf jena-fuseki1-1.3.0-distribution.tar.gz
 
-wget http://ftp.fau.de/apache//jena/binaries/apache-jena-2.12.1.tar.gz
-tar xf apache-jena-2.12.1.tar.gz
+wget http://mirror.23media.de/apache/jena/binaries/apache-jena-3.0.0.tar.gz
+tar xf apache-jena-3.0.0.tar.gz
 
 #
 # Convert OWL to RDF

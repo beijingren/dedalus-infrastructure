@@ -21,7 +21,7 @@ tar xf apache-jena-3.0.0.tar.gz
 #
 # Start fuseki server
 #
-cd jena-fuseki-1.1.1
+cd jena-fuseki1-1.3.0
 
 chmod +x s-put
 
